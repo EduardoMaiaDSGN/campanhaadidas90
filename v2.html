@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADIDAS RAMP 90s // V2.0 CONCEPTUAL MONOGRAPH</title>
+  <meta name="description" content="Adidas Ramp 90s — Reconstrução conceitual e arquivo brutalista do clássico tênis de skate dos anos 90.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@700;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       INDUSTRIAL BRUTALIST & SWISS TELEMETRY DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      --bg: #07080a;
+      --bg-card: #0d0f14;
+      --bg-elevated: #13161f;
+      --border: rgba(255, 255, 255, 0.12);
+      --border-strong: rgba(255, 255, 255, 0.28);
+      --border-accent: #ff3333;
+      --text: #f0f2f5;
+      --text-muted: #838a96;
+      --text-dim: #4d5360;
+      --accent: #ff3333;
+      --accent-glow: rgba(255, 51, 51, 0.3);
+      --neon-lime: #d4ff00;
+      --mono: 'JetBrains Mono', monospace;
+      --display: 'Syne', sans-serif;
+      --sans: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+      --grid-line: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border-radius: 0 !important; /* Strict Brutalist Rule: No round corners */
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    body {
+      overflow-x: hidden;
+      min-height: 100vh;
+      background-image: 
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      line-height: 1.5;
+    }
+
+    /* Substrate CRT Scanline Overlay */
+    .scanlines {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 0, 0, 0.2) 2px,
+        rgba(0, 0, 0, 0.2) 4px
+      );
+      opacity: 0.35;
+    }
+
+    /* Utility typography */
+    .mono { font-family: var(--mono); }
+    .display { font-family: var(--display); }
+
+    /* Hairline borders */
+    .border-b { border-bottom: 1px solid var(--border); }
+    .border-t { border-top: 1px solid var(--border); }
+    .border-r { border-right: 1px solid var(--border); }
+    .border-l { border-left: 1px solid var(--border); }
+    .border-all { border: 1px solid var(--border); }
+
+    /* ==========================================================================
+       TOP TELEMETRY HEADER & VERSION SWITCHER
+       ========================================================================== */
+    .top-telemetry {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 8, 10, 0.94);
+      backdrop-filter: blur(12px);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0 1.5rem;
+      height: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-id {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-id svg {
+      width: 28px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 8px;
+      background: rgba(255, 51, 51, 0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+    }
+
+    .badge-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 1.4s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    /* Version Switcher Pills */
+    .version-switch-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ver-pill {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ver-pill.active {
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      border-color: #fff;
+    }
+
+    .ver-pill:not(.active):hover {
+      border-color: var(--text);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sound-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+    }
+
+    .sound-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text);
+    }
+
+    .sound-btn.is-active {
+      border-color: var(--neon-lime);
+      color: var(--neon-lime);
+      background: rgba(212, 255, 0, 0.08);
+    }
+
+    .sound-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .sound-bar {
+      width: 2px;
+      height: 4px;
+      background: currentColor;
+      transition: height 0.15s ease;
+    }
+
+    .sound-btn.is-active .sound-bar:nth-child(1) { animation: soundWave 0.6s infinite ease alternate; }
+    .sound-btn.is-active .sound-bar:nth-child(2) { animation: soundWave 0.4s infinite ease 0.1s alternate; }
+    .sound-btn.is-active .sound-bar:nth-child(3) { animation: soundWave 0.7s infinite ease 0.2s alternate; }
+
+    @keyframes soundWave {
+      0% { height: 2px; }
+      100% { height: 12px; }
+    }
+
+    /* ==========================================================================
+       HERO STAGE: THE CONCEPTUAL MONOGRAPH
+       ========================================================================== */
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      min-height: calc(100vh - 56px);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hero-view-pane {
+      position: relative;
+      background: #050608;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .view-telemetry-bar {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      z-index: 10;
+      background: rgba(5, 6, 8, 0.8);
+    }
+
+    .active-view-tag {
+      color: var(--neon-lime);
+      font-weight: 700;
+    }
+
+    .main-canvas-wrapper {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: radial-gradient(circle at center, rgba(30, 36, 50, 0.25) 0%, rgba(5, 6, 8, 0.95) 75%);
+    }
+
+    .hero-img-display {
+      max-width: 100%;
+      max-height: 68vh;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.85));
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: crosshair;
+    }
+
+    /* Perspective Switcher Toolbar */
+    .perspectives-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      z-index: 10;
+    }
+
+    .cam-btn {
+      background: transparent;
+      border: none;
+      border-right: 1px solid var(--border);
+      padding: 0.85rem 0.5rem;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cam-btn:last-child {
+      border-right: none;
+    }
+
+    .cam-btn .cam-num {
+      font-size: 0.65rem;
+      opacity: 0.6;
+    }
+
+    .cam-btn .cam-title {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .cam-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .cam-btn.is-active {
+      background: #fff;
+      color: #000;
+    }
+
+    .cam-btn.is-active .cam-num,
+    .cam-btn.is-active .cam-title {
+      color: #000;
+    }
+
+    /* Crosshairs on viewer */
+    .corner-mark {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+    .cm-tl { top: 1.5rem; left: 1.5rem; border-top: 2px solid; border-left: 2px solid; }
+    .cm-tr { top: 1.5rem; right: 1.5rem; border-top: 2px solid; border-right: 2px solid; }
+    .cm-bl { bottom: 5rem; left: 1.5rem; border-bottom: 2px solid; border-left: 2px solid; }
+    .cm-br { bottom: 5rem; right: 1.5rem; border-bottom: 2px solid; border-right: 2px solid; }
+
+    /* Crosshair Center Reticle */
+    .reticle-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0.15;
+    }
+
+    /* Hero Text & Blueprint telemetry sidebar */
+    .hero-info-pane {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3rem 2.5rem;
+      position: relative;
+    }
+
+    .meta-lead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .hero-headline {
+      font-family: var(--display);
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subheadline {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      max-width: 500px;
+    }
+
+    .hero-subheadline strong {
+      color: #fff;
+    }
+
+    /* Live Blueprint Data Table */
+    .blueprint-matrix {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      margin-bottom: 2.5rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+    }
+
+    .bpm-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+    }
+
+    .bpm-row:last-child {
+      border-bottom: none;
+    }
+
+    .bpm-label {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bpm-value {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Actions CTA Group */
+    .cta-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+    }
+
+    .btn-brutal {
+      background: #fff;
+      color: #000;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid #fff;
+      padding: 1.25rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-brutal:hover {
+      background: var(--neon-lime);
+      border-color: var(--neon-lime);
+      color: #000;
+      box-shadow: 0 0 25px rgba(212, 255, 0, 0.4);
+    }
+
+    .btn-brutal-secondary {
+      background: transparent;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-brutal-secondary:hover {
+      border-color: #fff;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* ==========================================================================
+       SECTION 2: TACTILE SOUND SYNTHESIZER
+       ========================================================================== */
+    .section-synth {
+      border-bottom: 1px solid var(--border);
+      background: #090b10;
+      padding: 4rem 2rem;
+    }
+
+    .section-header-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 650px;
+      font-size: 0.95rem;
+      margin-bottom: 3rem;
+    }
+
+    .synth-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .sound-pad {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+    }
+
+    .sound-pad:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      background: var(--bg-elevated);
+    }
+
+    .sound-pad:active, .sound-pad.triggered {
+      border-color: var(--neon-lime);
+      box-shadow: 0 0 20px rgba(212, 255, 0, 0.25);
+      background: rgba(212, 255, 0, 0.06);
+    }
+
+    .pad-top {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .pad-indicator {
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .sound-pad.triggered .pad-indicator {
+      background: var(--neon-lime);
+      border-color: var(--neon-lime);
+    }
+
+    .pad-body {
+      margin: 1rem 0;
+    }
+
+    .pad-name {
+      font-family: var(--mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .pad-spec {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .pad-btn-trigger {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sound-pad:hover .pad-btn-trigger {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Oscilloscope visualizer canvas */
+    .oscilloscope-container {
+      background: #040507;
+      border: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .osc-telemetry {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    #oscCanvas {
+      width: 100%;
+      height: 70px;
+      display: block;
+    }
+
+    /* ==========================================================================
+       SECTION 3: THE CONCEPTUAL SPREAD (ARCHIVE EXHIBITION)
+       ========================================================================== */
+    .section-gallery {
+      padding: 5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .concept-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .concept-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      background: #020304;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+    }
+
+    .card-img-wrap.aspect-square {
+      aspect-ratio: 1 / 1;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+      filter: grayscale(15%) contrast(105%);
+    }
+
+    .concept-card:hover .card-img-wrap img {
+      transform: scale(1.03);
+      filter: grayscale(0%) contrast(110%);
+    }
+
+    .card-details {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .card-title {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* Bottom row gallery */
+    .gallery-bottom-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* ==========================================================================
+       SECTION 4: TECHNICAL SPEC MATRIX (BLUEPRINT)
+       ========================================================================== */
+    .section-specs {
+      padding: 5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: #07080b;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+    }
+
+    .spec-cell {
+      background: var(--bg);
+      padding: 2.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      transition: background 0.2s ease;
+    }
+
+    .spec-cell:hover {
+      background: var(--bg-card);
+    }
+
+    .spec-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .spec-name {
+      font-family: var(--mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 1rem 0 0.5rem 0;
+    }
+
+    .spec-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .spec-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 1.5rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ==========================================================================
+       SECTION 5: PHILOSOPHY & MANIFESTO
+       ========================================================================== */
+    .section-manifesto {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .manifesto-left {
+      padding: 5rem 3rem;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: radial-gradient(circle at 10% 20%, rgba(255, 51, 51, 0.08) 0%, transparent 60%);
+    }
+
+    .manifesto-quote {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .manifesto-quote span {
+      color: var(--accent);
+      display: block;
+    }
+
+    .manifesto-right {
+      padding: 5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--bg-card);
+    }
+
+    .manifesto-p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .manifesto-p strong {
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       SECTION 6: ALLOCATION TERMINAL (PRE-ORDER)
+       ========================================================================== */
+    .section-allocation {
+      padding: 6rem 2rem;
+      background: #050608;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terminal-container {
+      max-width: 860px;
+      margin: 0 auto;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+    }
+
+    .terminal-bar {
+      padding: 0.75rem 1.25rem;
+      background: #11141b;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .tdot {
+      width: 10px;
+      height: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .terminal-content {
+      padding: 3rem 2.5rem;
+    }
+
+    .alloc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .input-group label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .input-brutal {
+      width: 100%;
+      background: #050608;
+      border: 1px solid var(--border);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      padding: 1rem 1.25rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-brutal:focus {
+      border-color: var(--neon-lime);
+      box-shadow: 0 0 15px rgba(212, 255, 0, 0.2);
+    }
+
+    .size-selector {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .size-btn {
+      background: #050608;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      padding: 0.75rem 0.25rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .size-btn:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .size-btn.selected {
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      border-color: #fff;
+    }
+
+    /* Terminal Pass Card (Result) */
+    .alloc-pass-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border: 1px dashed var(--neon-lime);
+      background: rgba(212, 255, 0, 0.03);
+      font-family: var(--mono);
+      display: none;
+    }
+
+    .alloc-pass-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       FOOTER: ARCHITECTURAL TELEMETRY
+       ========================================================================== */
+    footer {
+      background: #040507;
+      padding: 4rem 2rem 2rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand h4 {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col h5 {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      font-size: 0.7rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (PERFECT MOBILE / TABLET / DESKTOP)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+      .hero-view-pane {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        min-height: 55vh;
+      }
+      .synth-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-grid, .gallery-bottom-grid {
+        grid-template-columns: 1fr;
+      }
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .section-manifesto {
+        grid-template-columns: 1fr;
+      }
+      .manifesto-left {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 4rem 2rem;
+      }
+      .manifesto-right {
+        padding: 4rem 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-telemetry {
+        padding: 0 1rem;
+      }
+      .brand-id span {
+        display: none;
+      }
+      .hero-info-pane {
+        padding: 2rem 1.25rem;
+      }
+      .hero-headline {
+        font-size: 2.8rem;
+      }
+      .cta-actions {
+        grid-template-columns: 1fr;
+      }
+      .synth-grid {
+        grid-template-columns: 1fr;
+      }
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+      .alloc-grid {
+        grid-template-columns: 1fr;
+      }
+      .size-selector {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Analog CRT Scanline overlay -->
+  <div class="scanlines"></div>
+
+  <!-- ==========================================================================
+       TOP TELEMETRY & NAVIGATION
+       ========================================================================== -->
+  <header class="top-telemetry">
+    <div class="brand-id">
+      <svg viewBox="0 0 24 24">
+        <!-- Adidas 3-Stripes Geometric Icon -->
+        <path d="M2.5 19h3.2L11 8H7.8L2.5 19zm7 0h3.2L18 4h-3.2L9.5 19zm7 0h3.2L24 11h-3.2L16.5 19z"/>
+      </svg>
+      <span>ADIDAS ORIGINALS LABS</span>
+      <span class="badge-status">SYS.ACT // ARCHIVE PROTOCOL</span>
+    </div>
+
+    <!-- Dual-Version Switcher -->
+    <div class="version-switch-container">
+      <a href="index.html" class="ver-pill active">
+        <span>●</span> V2.0 // CONCEPTUAL
+      </a>
+      <a href="v1.html" class="ver-pill">
+        <span>○</span> V1.0 // ARCHIVE VAULT
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <button class="sound-btn" id="globalSoundToggle" title="Ativar Áudio Tátil">
+        <span class="sound-bars">
+          <span class="sound-bar"></span>
+          <span class="sound-bar"></span>
+          <span class="sound-bar"></span>
+        </span>
+        <span id="soundStatusText">AUDIO: ON</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION: MONOGRAPH VIEWPORT
+         ========================================================================== -->
+    <section class="hero-container">
+      <!-- Left Viewport -->
+      <div class="hero-view-pane">
+        <div class="view-telemetry-bar">
+          <div>FEED: <span class="active-view-tag" id="camTag">CAM_01 // HERO_MONOLITH</span></div>
+          <div>RES: 4096x2304 RAW</div>
+          <div>SHUTTER: 1/500s ƒ/2.8</div>
+        </div>
+
+        <div class="main-canvas-wrapper">
+          <!-- Framing Crosshairs -->
+          <div class="corner-mark cm-tl"></div>
+          <div class="corner-mark cm-tr"></div>
+          <div class="corner-mark cm-bl"></div>
+          <div class="corner-mark cm-br"></div>
+
+          <!-- Central Crosshair Reticle -->
+          <svg class="reticle-center" width="80" height="80" viewBox="0 0 80 80">
+            <line x1="40" y1="20" x2="40" y2="60" stroke="#fff" stroke-width="1"/>
+            <line x1="20" y1="40" x2="60" y2="40" stroke="#fff" stroke-width="1"/>
+            <circle cx="40" cy="40" r="15" fill="none" stroke="#fff" stroke-width="1"/>
+          </svg>
+
+          <!-- Main Concept Image Display -->
+          <img 
+            id="heroViewerImg" 
+            src="assets_v2/hero_adidas_ramp_concept.jpg" 
+            alt="Adidas Ramp 90s - Vista Conceitual Monolítica" 
+            class="hero-img-display"
+          >
+        </div>
+
+        <!-- 4-Perspective Switcher Bar -->
+        <div class="perspectives-bar">
+          <button class="cam-btn is-active" data-src="assets_v2/hero_adidas_ramp_concept.jpg" data-name="CAM_01 // HERO_MONOLITH" data-sound="click">
+            <span class="cam-num">VIEW 01</span>
+            <span class="cam-title">MONOLITH STILL</span>
+          </button>
+          <button class="cam-btn" data-src="assets_v2/concept_product_still.jpg" data-name="CAM_02 // PEDESTAL_ARCHIVE" data-sound="click">
+            <span class="cam-num">VIEW 02</span>
+            <span class="cam-title">PEDESTAL STUDIO</span>
+          </button>
+          <button class="cam-btn" data-src="assets_v2/concept_skate_action.jpg" data-name="CAM_03 // VERT_KINETICS" data-sound="click">
+            <span class="cam-num">VIEW 03</span>
+            <span class="cam-title">KINETIC ACTION</span>
+          </button>
+          <button class="cam-btn" data-src="assets_v2/concept_macro_detail.jpg" data-name="CAM_04 // MACRO_TEXTURE" data-sound="click">
+            <span class="cam-num">VIEW 04</span>
+            <span class="cam-title">GUM-SOLE MACRO</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Blueprint Info -->
+      <div class="hero-info-pane">
+        <div>
+          <div class="meta-lead">
+            <span>[ ARCHIVE RE-ENGINEERING ]</span>
+            <span>HERZOGENAURACH // 1994 -> 2026</span>
+          </div>
+
+          <h1 class="hero-headline">
+            ADIDAS<br>RAMP 90s
+          </h1>
+
+          <p class="hero-subheadline">
+            O silhouette de skate mais cultuado da era de ouro das pistas. 
+            <strong>Recriado em pureza arquitetônica bruta</strong>: camurça marinho pesada de 2.4mm, cupsole knurled de borracha vulcanizada e acolchoamento balístico.
+          </p>
+
+          <!-- Specifications Telemetry Table -->
+          <div class="blueprint-matrix">
+            <div class="bpm-row">
+              <span class="bpm-label">ORIGIN YEAR</span>
+              <span class="bpm-value">1994 // VERT & STREET ARCHIVES</span>
+            </div>
+            <div class="bpm-row">
+              <span class="bpm-label">MATERIALS</span>
+              <span class="bpm-value">WOLVERINE NAVY SUEDE / 100% GUM RUBBER</span>
+            </div>
+            <div class="bpm-row">
+              <span class="bpm-label">CHASSIS</span>
+              <span class="bpm-value">DOUBLE-CUP 360° REINFORCED SIDEWALL</span>
+            </div>
+            <div class="bpm-row">
+              <span class="bpm-label">PRODUCTION</span>
+              <span class="bpm-value">STRICT ARCHIVE BATCH: 1,000 UNITS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-actions">
+          <a href="#allocation" class="btn-brutal" id="heroAllocCta">
+            <span>RESERVAR PAR // ALLOCATE</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#manifesto" class="btn-brutal-secondary">
+            <span>MANIFESTO</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: TACTILE SOUND SYNTHESIZER (WEB AUDIO API)
+         ========================================================================== -->
+    <section class="section-synth">
+      <div class="section-header-tag">/// TACTILE FEEDBACK SYNTHESIZER</div>
+      <h2 class="section-title">A ACÚSTICA DO CONCRETO</h2>
+      <p class="section-desc">
+        Toque nos pads abaixo para disparar frequências analógicas sintetizadas via Web Audio API. 
+        O som do tail estalando no asfalto, o atrito do coping e o giro das esferas de rolamento.
+      </p>
+
+      <div class="synth-grid">
+        <div class="sound-pad" data-sound-type="ollie">
+          <div class="pad-top">
+            <span>FREQ: 85Hz - 1.2kHz</span>
+            <div class="pad-indicator"></div>
+          </div>
+          <div class="pad-body">
+            <div class="pad-name">OLLIE POP</div>
+            <div class="pad-spec">Estalo seco de maple 7 folhas sobre asfalto denso</div>
+          </div>
+          <div class="pad-btn-trigger">[ TRIGGER SOUND ]</div>
+        </div>
+
+        <div class="sound-pad" data-sound-type="grind">
+          <div class="pad-top">
+            <span>FREQ: 320Hz - 4.8kHz</span>
+            <div class="pad-indicator"></div>
+          </div>
+          <div class="pad-body">
+            <div class="pad-name">COPING GRIND</div>
+            <div class="pad-spec">Atrito abrasivo de truck e sola gum sobre cantoneira</div>
+          </div>
+          <div class="pad-btn-trigger">[ TRIGGER SOUND ]</div>
+        </div>
+
+        <div class="sound-pad" data-sound-type="bearing">
+          <div class="pad-top">
+            <span>FREQ: 2.4kHz - 8.6kHz</span>
+            <div class="pad-indicator"></div>
+          </div>
+          <div class="pad-body">
+            <div class="pad-name">BEARING WHIRL</div>
+            <div class="pad-spec">Centrifugação livre de rolamentos cerâmicos ABEC-9</div>
+          </div>
+          <div class="pad-btn-trigger">[ TRIGGER SOUND ]</div>
+        </div>
+
+        <div class="sound-pad" data-sound-type="stomp">
+          <div class="pad-top">
+            <span>FREQ: 45Hz - 380Hz</span>
+            <div class="pad-indicator"></div>
+          </div>
+          <div class="pad-body">
+            <div class="pad-name">IMPACT STOMP</div>
+            <div class="pad-spec">Absorção de impacto de drop de 8 degraus</div>
+          </div>
+          <div class="pad-btn-trigger">[ TRIGGER SOUND ]</div>
+        </div>
+      </div>
+
+      <!-- Live Oscilloscope -->
+      <div class="oscilloscope-container">
+        <div class="osc-telemetry">
+          <span>OSCILLOSCOPE TELEMETRY // REAL-TIME FFT ANALYSIS</span>
+          <span id="oscHz">IDLE: 0.00 Hz</span>
+        </div>
+        <canvas id="oscCanvas"></canvas>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: ARCHIVAL VISUAL EXHIBITION (THE 4 AI CONCEPTS)
+         ========================================================================== -->
+    <section class="section-gallery">
+      <div class="section-header-tag">/// CONCEITUAÇÃO VISUAL EXCLUSIVA</div>
+      <h2 class="section-title">THE ARCHIVAL MONOGRAPH</h2>
+      <p class="section-desc">
+        Quatro perspectivas de alta definição geradas conceitualmente para dissecar a estética, textura e biomecânica do retorno do Adidas Ramp 90s.
+      </p>
+
+      <div class="gallery-grid">
+        <!-- Card 1: Pedestal Studio Still -->
+        <article class="concept-card">
+          <div class="card-img-wrap aspect-square">
+            <img src="assets_v2/concept_product_still.jpg" alt="Adidas Ramp em Pedestal Brutalista" loading="lazy">
+          </div>
+          <div class="card-details">
+            <div class="card-meta-row">
+              <span>PLATE_01 // STILL LIFE</span>
+              <span>KRAFT & GRIP PEDESTAL</span>
+            </div>
+            <h3 class="card-title">ESCULTURA EM CAMURÇA MARINHO</h3>
+            <p class="card-desc">
+              O tênis repousa sobre camadas alternadas de papelão kraft reciclado e lixa de skate preta de alta granulação, banhado por luz direcional de galeria contemporânea.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 2: Vert Action in Brutalist Architecture -->
+        <article class="concept-card">
+          <div class="card-img-wrap">
+            <img src="assets_v2/concept_skate_action.jpg" alt="Manobra de skate na arquitetura brutalista ao entardecer" loading="lazy">
+          </div>
+          <div class="card-details">
+            <div class="card-meta-row">
+              <span>PLATE_02 // KINETICS</span>
+              <span>RAW CONCRETE PLAZA</span>
+            </div>
+            <h3 class="card-title">KINETIC FLIGHT // GRAVIDADE ZERO</h3>
+            <p class="card-desc">
+              Capturado em plena transição aérea no concreto cru. A robustez da silhueta dos anos 90 garante absorção de impacto onde o streetwear encontra a física extrema.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="gallery-bottom-grid">
+        <!-- Card 3: Macro Texture & Gum Sole -->
+        <article class="concept-card">
+          <div class="card-img-wrap">
+            <img src="assets_v2/concept_macro_detail.jpg" alt="Detalhe macro da sola de borracha e camurça" loading="lazy">
+          </div>
+          <div class="card-details">
+            <div class="card-meta-row">
+              <span>PLATE_03 // TACTILE MACRO</span>
+              <span>HERRINGBONE GUM PATTERN</span>
+            </div>
+            <h3 class="card-title">GRIP HERMETICO & VULCANIZAÇÃO</h3>
+            <p class="card-desc">
+              Visão macro dos sulcos em espinha de peixe da borracha crua, costuras duplas reforçadas com fio de nylon marítimo e o logotipo Trefoil estampado a quente no calcanhar.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 4: Hero Monolith (Widescreen Heroic Still) -->
+        <article class="concept-card">
+          <div class="card-img-wrap">
+            <img src="assets_v2/hero_adidas_ramp_concept.jpg" alt="Adidas Ramp vista lateral em concreto" loading="lazy">
+          </div>
+          <div class="card-details">
+            <div class="card-meta-row">
+              <span>PLATE_04 // THE MONOLITH</span>
+              <span>ORIGINAL COLORWAY</span>
+            </div>
+            <h3 class="card-title">O ÍCONE EM PERFIL DEFINITIVO</h3>
+            <p class="card-desc">
+              As três listras brancas serrilhadas em couro nappa puro sobre a base de camurça azul profundo. A proporção volumosa original de 1994 intacta.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: TECHNICAL SPEC MATRIX
+         ========================================================================== -->
+    <section class="section-specs">
+      <div class="section-header-tag">/// DECONSTRUCTED SPECIFICATION</div>
+      <h2 class="section-title">ENGENHARIA BALÍSTICA DE PISTA</h2>
+      <p class="section-desc">
+        Construído para suportar lixa abrasiva grau 80, gaps de concreto e anos de atrito ininterrupto.
+      </p>
+
+      <div class="specs-grid">
+        <div class="spec-cell">
+          <div>
+            <span class="spec-num">SPEC_01</span>
+            <h3 class="spec-name">CABEDAL SUEDE 2.4MM</h3>
+            <p class="spec-text">
+              Camurça suína Wolverine de espessura militar tratada com nanotecnologia hidro-repelente. Resiste 3x mais ao atrito contínuo do ollie do que o suede comercial padrão.
+            </p>
+          </div>
+          <div class="spec-footer">
+            <span>RESISTÊNCIA</span>
+            <span>ABRASION GRADE 4</span>
+          </div>
+        </div>
+
+        <div class="spec-cell">
+          <div>
+            <span class="spec-num">SPEC_02</span>
+            <h3 class="spec-name">SOLADO GUM KNURLED</h3>
+            <p class="spec-text">
+              Composto de borracha vegetal crua natural moldada em duas densidades. Laterais recartilhadas para proteção lateral e base flexível com tração 360°.
+            </p>
+          </div>
+          <div class="spec-footer">
+            <span>DUREZA</span>
+            <span>SHORE A 62</span>
+          </div>
+        </div>
+
+        <div class="spec-cell">
+          <div>
+            <span class="spec-num">SPEC_03</span>
+            <h3 class="spec-name">COLLAR FOAM 18MM</h3>
+            <p class="spec-text">
+              Língua e colarinho ultragordos característicos dos anos 90 com espuma de memória de célula fechada. Trava os ossos do tornozelo impedindo torções em aterrissagens vert.
+            </p>
+          </div>
+          <div class="spec-footer">
+            <span>PROTEÇÃO</span>
+            <span>ANKLE LOCK 3D</span>
+          </div>
+        </div>
+
+        <div class="spec-cell">
+          <div>
+            <span class="spec-num">SPEC_04</span>
+            <h3 class="spec-name">FAT LACES & AGLETS</h3>
+            <p class="spec-text">
+              Cadarços planos de 16mm em algodão pesado com ponteiras de alumínio fosco prensadas a frio. Passadores embutidos que protegem o cadarço de ser cortado pela lixa.
+            </p>
+          </div>
+          <div class="spec-footer">
+            <span>LARGURA</span>
+            <span>16MM GAUGE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: MANIFESTO
+         ========================================================================== -->
+    <section class="section-manifesto" id="manifesto">
+      <div class="manifesto-left">
+        <div class="section-header-tag">/// PHILOSOPHY & MANIFESTO</div>
+        <h2 class="manifesto-quote">
+          NÃO É NOSTALGIA.<br>
+          <span>É ARQUITETURA DE RESISTÊNCIA.</span>
+        </h2>
+        <div class="mono" style="font-size: 0.8rem; color: var(--text-dim);">
+          [ ADIDAS ARCHIVE MONOGRAPH // PROTOCOL DECONSTRUCTION ]
+        </div>
+      </div>
+
+      <div class="manifesto-right">
+        <p class="manifesto-p">
+          A maioria das reedições comete o erro de romantizar o passado com acabamentos estéreis e plásticos. 
+          O <strong>Adidas Ramp 90s</strong> rejeita essa ilusão. Ele não é uma cópia; é um fóssil vivo da era vert.
+        </p>
+        <p class="manifesto-p">
+          Criado em 1994, quando os tênis de skate eram ferramentas pesadas e indestrutíveis esculpidas para sobreviver à lixa e ao granito das praças públicas. 
+          Trazer o Ramp de volta em 2026 é reafirmar que <strong>forma segue a função extrema</strong>.
+        </p>
+        <p class="manifesto-p">
+          Cada costura, cada milímetro de camurça marinho e a densidade da borracha foram restaurados com fidelidade cirúrgica a partir dos moldes originais arquivados em Herzogenaurach.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: ALLOCATION TERMINAL (PRE-ORDER)
+         ========================================================================== -->
+    <section class="section-allocation" id="allocation">
+      <div class="terminal-container">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="tdot"></span>
+            <span class="tdot"></span>
+            <span class="tdot"></span>
+          </div>
+          <span>ALLOCATION PROTOCOL // ADI-RMP-90-C</span>
+          <span style="color: var(--neon-lime);">● SYSTEM READY</span>
+        </div>
+
+        <div class="terminal-content">
+          <div class="section-header-tag">/// BATCH RESERVATION TERMINAL</div>
+          <h2 style="font-family: var(--display); font-size: 2.2rem; text-transform: uppercase; margin-bottom: 0.5rem;">
+            GARANTA SEU PAR NO LOTE ZERO
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2rem;">
+            Lote limitado a 1.000 pares numerados mundialmente. Cada caixa acompanha um bloco de lixa de skate de arquivo e certificado holográfico de autenticidade.
+          </p>
+
+          <form id="allocForm" onsubmit="event.preventDefault(); triggerAllocation();">
+            <div class="alloc-grid">
+              <div class="input-group">
+                <label for="userName">NOME COMPLETO // IDENTIFICATION</label>
+                <input type="text" id="userName" class="input-brutal" placeholder="EX: EDUARDO MAIA" required>
+              </div>
+
+              <div class="input-group">
+                <label for="userEmail">E-MAIL DO TITULAR // TELEMETRY LINK</label>
+                <input type="email" id="userEmail" class="input-brutal" placeholder="nome@dominio.com" required>
+              </div>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 2.5rem;">
+              <label>SELECIONE SUA NUMERAÇÃO BR / US</label>
+              <div class="size-selector">
+                <button type="button" class="size-btn selected" data-size="38">38 BR (7 US)</button>
+                <button type="button" class="size-btn" data-size="39">39 BR (7.5 US)</button>
+                <button type="button" class="size-btn" data-size="40">40 BR (8.5 US)</button>
+                <button type="button" class="size-btn" data-size="41">41 BR (9.5 US)</button>
+                <button type="button" class="size-btn" data-size="42">42 BR (10 US)</button>
+                <button type="button" class="size-btn" data-size="43">43 BR (11 US)</button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-brutal" style="width: 100%;">
+              <span>SOLICITAR PROTOCOLO DE ALOCAÇÃO</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Generated Reservation Pass -->
+          <div class="alloc-pass-box" id="passBox">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--neon-lime); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+              <span style="color: var(--neon-lime); font-weight: 700;">ALOCAÇÃO REGISTRADA COM SUCESSO</span>
+              <span id="passTimestamp" style="color: var(--text-dim); font-size: 0.7rem;"></span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.8rem; margin-bottom: 1rem;">
+              <div>
+                <div style="color: var(--text-dim);">TITULAR:</div>
+                <div id="passName" style="color: #fff; font-weight: 700;"></div>
+              </div>
+              <div>
+                <div style="color: var(--text-dim);">NUMERAÇÃO:</div>
+                <div id="passSize" style="color: #fff; font-weight: 700;"></div>
+              </div>
+              <div>
+                <div style="color: var(--text-dim);">Nº DE PROTOCOLO:</div>
+                <div id="passId" style="color: var(--neon-lime); font-weight: 700;"></div>
+              </div>
+              <div>
+                <div style="color: var(--text-dim);">STATUS:</div>
+                <div style="color: #fff;">PRIORITY WAITING LIST // CONFIRMADO</div>
+              </div>
+            </div>
+            <div style="font-size: 0.7rem; color: var(--text-muted); border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 0.75rem;">
+              Apresente este código quando o link privado de checkout for liberado para o seu e-mail.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h4>ADIDAS RAMP 90s // MONOGRAPH</h4>
+        <p style="color: var(--text-muted); max-width: 400px; font-size: 0.8rem; line-height: 1.6;">
+          Arquitetura visual conceitual desenvolvida de forma autônoma para o relançamento do ícone dos anos 90.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>VERSÕES DO PROJETO</h5>
+        <ul>
+          <li><a href="index.html" style="color: var(--neon-lime);">● V2.0 // Blueprint Conceitual (Atual)</a></li>
+          <li><a href="v1.html">○ V1.0 // Acervo & Vídeos Vintage</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>COORDENADAS TÉCNICAS</h5>
+        <ul>
+          <li>HQ: HERZOGENAURACH, DE</li>
+          <li>LAT: 49°34'12" N // LON: 10°52'48" E</li>
+          <li>ARCHIVE CODE: RMP-1994-BRT</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 ADIDAS ARCHIVE PROJECT. TODOS OS DIREITOS RESERVADOS.</div>
+      <div style="color: var(--text-dim);">BUILT WITH HIGH-END TACTICAL BRUTALISM</div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       AUDIO & INTERACTION SCRIPT
+       ========================================================================== -->
+  <script>
+    // Audio Context Setup
+    let audioCtx = null;
+    let isSoundMuted = false;
+    let selectedShoeSize = "38";
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+        setupVisualizer();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Skateboard Web Audio Synthesizer Functions
+    function playSkateSound(type) {
+      if (isSoundMuted) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        if (type === 'ollie') {
+          // Ollie: Punchy transient thump + wood snap + release
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(260, now);
+          osc.frequency.exponentialRampToValueAtTime(45, now + 0.12);
+
+          gain.gain.setValueAtTime(0.8, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.14);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          if (analyser) gain.connect(analyser);
+
+          osc.start(now);
+          osc.stop(now + 0.15);
+
+          // Snap noise burst
+          playNoiseBurst(0.06, 800, 3000, 0.4);
+
+        } else if (type === 'grind') {
+          // Coping Grind: High-grit friction noise
+          playNoiseBurst(0.35, 1200, 5000, 0.6);
+
+        } else if (type === 'bearing') {
+          // Bearing whirl: High pitched resonant oscillation
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1400, now);
+          osc.frequency.linearRampToValueAtTime(2200, now + 0.2);
+          osc.frequency.linearRampToValueAtTime(800, now + 0.6);
+
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          if (analyser) gain.connect(analyser);
+
+          osc.start(now);
+          osc.stop(now + 0.6);
+
+        } else if (type === 'stomp') {
+          // Stomp: Deep bass sub-kick
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(120, now);
+          osc.frequency.exponentialRampToValueAtTime(28, now + 0.25);
+
+          gain.gain.setValueAtTime(1.0, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          if (analyser) gain.connect(analyser);
+
+          osc.start(now);
+          osc.stop(now + 0.3);
+
+        } else if (type === 'click') {
+          // Crisp UI tactical switch click
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(2400, now);
+          osc.frequency.exponentialRampToValueAtTime(800, now + 0.02);
+
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.025);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(now);
+          osc.stop(now + 0.03);
+        }
+      } catch (e) {
+        console.warn('Audio not enabled yet:', e);
+      }
+    }
+
+    function playNoiseBurst(duration, lowCut, highCut, volume) {
+      const ctx = getAudioContext();
+      const bufferSize = ctx.sampleRate * duration;
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+
+      const noise = ctx.createBufferSource();
+      noise.buffer = buffer;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.value = (lowCut + highCut) / 2;
+      filter.Q.value = 1.2;
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(volume, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+      if (analyser) gain.connect(analyser);
+
+      noise.start();
+    }
+
+    // Oscilloscope FFT Analyzer setup
+    let analyser = null;
+    let canvas = null;
+    let canvasCtx = null;
+
+    function setupVisualizer() {
+      if (!audioCtx) return;
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 256;
+      canvas = document.getElementById('oscCanvas');
+      if (!canvas) return;
+      canvasCtx = canvas.getContext('2d');
+      drawOscilloscope();
+    }
+
+    function drawOscilloscope() {
+      requestAnimationFrame(drawOscilloscope);
+      if (!analyser || !canvasCtx) return;
+
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+      analyser.getByteTimeDomainData(dataArray);
+
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = 70;
+
+      canvasCtx.fillStyle = '#040507';
+      canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = '#d4ff00';
+      canvasCtx.beginPath();
+
+      const sliceWidth = canvas.width / bufferLength;
+      let x = 0;
+
+      for (let i = 0; i < bufferLength; i++) {
+        const v = dataArray[i] / 128.0;
+        const y = v * (canvas.height / 2);
+
+        if (i === 0) {
+          canvasCtx.moveTo(x, y);
+        } else {
+          canvasCtx.lineTo(x, y);
+        }
+        x += sliceWidth;
+      }
+
+      canvasCtx.lineTo(canvas.width, canvas.height / 2);
+      canvasCtx.stroke();
+    }
+
+    // DOM Ready Interactions
+    document.addEventListener('DOMContentLoaded', () => {
+      // Perspective View Switcher
+      const camButtons = document.querySelectorAll('.cam-btn');
+      const heroImg = document.getElementById('heroViewerImg');
+      const camTag = document.getElementById('camTag');
+
+      camButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          camButtons.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+
+          const newSrc = btn.getAttribute('data-src');
+          const newName = btn.getAttribute('data-name');
+
+          playSkateSound('click');
+
+          // Smooth fade transition
+          heroImg.style.opacity = '0';
+          heroImg.style.transform = 'scale(0.97)';
+          setTimeout(() => {
+            heroImg.src = newSrc;
+            heroImg.style.opacity = '1';
+            heroImg.style.transform = 'scale(1)';
+            camTag.textContent = newName;
+          }, 200);
+        });
+      });
+
+      // Sound Pads
+      const soundPads = document.querySelectorAll('.sound-pad');
+      soundPads.forEach(pad => {
+        pad.addEventListener('click', () => {
+          const type = pad.getAttribute('data-sound-type');
+          pad.classList.add('triggered');
+          playSkateSound(type);
+
+          const hzEl = document.getElementById('oscHz');
+          if (hzEl) {
+            hzEl.textContent = `TRIGGERED: [${type.toUpperCase()}] // ACTIVE`;
+          }
+
+          setTimeout(() => {
+            pad.classList.remove('triggered');
+          }, 250);
+        });
+      });
+
+      // Global Sound Toggle
+      const soundToggle = document.getElementById('globalSoundToggle');
+      const soundStatusText = document.getElementById('soundStatusText');
+      soundToggle.classList.add('is-active');
+
+      soundToggle.addEventListener('click', () => {
+        isSoundMuted = !isSoundMuted;
+        if (isSoundMuted) {
+          soundToggle.classList.remove('is-active');
+          soundStatusText.textContent = 'AUDIO: MUTED';
+        } else {
+          soundToggle.classList.add('is-active');
+          soundStatusText.textContent = 'AUDIO: ON';
+          getAudioContext();
+          playSkateSound('click');
+        }
+      });
+
+      // Shoe Size Buttons
+      const sizeBtns = document.querySelectorAll('.size-btn');
+      sizeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          sizeBtns.forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          selectedShoeSize = btn.getAttribute('data-size');
+          playSkateSound('click');
+        });
+      });
+    });
+
+    // Form Allocation Trigger
+    function triggerAllocation() {
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+
+      if (!name || !email) return;
+
+      playSkateSound('stomp');
+
+      const passBox = document.getElementById('passBox');
+      const passName = document.getElementById('passName');
+      const passSize = document.getElementById('passSize');
+      const passId = document.getElementById('passId');
+      const passTimestamp = document.getElementById('passTimestamp');
+
+      passName.textContent = name.toUpperCase();
+      passSize.textContent = `${selectedShoeSize} BR (EU)`;
+      
+      // Generate cryptographic style pass number
+      const randomSeq = Math.floor(100 + Math.random() * 900);
+      const hexHash = Math.random().toString(16).substring(2, 8).toUpperCase();
+      passId.textContent = `#ADI-RMP-26-${randomSeq}-${hexHash}`;
+
+      const now = new Date();
+      passTimestamp.textContent = `TIMESTAMP: ${now.toISOString().substring(0, 19).replace('T', ' ')} UTC`;
+
+      passBox.classList.add('show');
+      passBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>
