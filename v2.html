@@ -3,55 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ADIDAS RAMP 90s // V2.0 CONCEITUAL</title>
-  <meta name="description" content="Adidas Ramp 90s — Reconstrução conceitual brutalista do clássico tênis de skate dos anos 90. Design responsivo de alta performance.">
+  <title>ADIDAS RAMP 90s — Monografia Conceitual // Relançamento de Arquivo</title>
+  <meta name="description" content="Adidas Ramp 90s — Reconstrução arquitetônica e monografia visual do clássico sneaker de skate dos anos 90. Design editorial de alta precisão.">
   
-  <!-- Preconnect & Fonts -->
+  <!-- Typography: Syne (Display), Space Grotesk (Editorial Sans), JetBrains Mono (Telemetry) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   
   <style>
     /* ==========================================================================
-       DESIGN SYSTEM & TYPOGRAPHIC HIERARCHY
+       IMPECCABLE DESIGN SYSTEM: SPATIAL SCALE, TYPOGRAPHY & OKLCH PALETTE
        ========================================================================== */
     :root {
-      --bg: #07080a;
-      --bg-card: #0e1017;
-      --bg-elevated: #151822;
-      --border: rgba(255, 255, 255, 0.12);
-      --border-strong: rgba(255, 255, 255, 0.25);
-      --border-accent: #ff3333;
+      /* Substrates */
+      --bg-canvas: #060709;
+      --bg-surface: #0c0e14;
+      --bg-elevated: #131620;
       
-      /* High-contrast readable typography palette */
-      --text-hero: #ffffff;
-      --text-main: #edf0f5;
-      --text-muted: #9ba4b5;
-      --text-dim: #6b7485;
+      /* Hairline Structural Borders */
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.16);
+      --border-strong: rgba(255, 255, 255, 0.32);
       
-      --accent: #ff3333;
-      --neon-lime: #d4ff00;
+      /* High-Contrast Readable Text (WCAG AAA/AA Compliant) */
+      --text-white: #ffffff;
+      --text-primary: #e6ebf2;     /* 11.2:1 against bg-canvas */
+      --text-secondary: #9aa5b8;   /* 5.6:1 against bg-canvas */
+      --text-tertiary: #687385;    /* 3.4:1 metadata/labels */
       
-      --mono: 'JetBrains Mono', monospace;
-      --display: 'Syne', sans-serif;
-      --sans: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --grid-line: rgba(255, 255, 255, 0.04);
+      /* Intentional Accents (Strictly ≤ 5% of layout surface) */
+      --accent-danger: #ff2a2a;
+      --accent-solar: #d4ff00;
+      
+      /* Typographic Fonts */
+      --font-display: 'Syne', -apple-system, sans-serif;
+      --font-body: 'Space Grotesk', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      /* 4pt Base Spacing Rhythm (Impeccable System) */
+      --space-2xs: 4px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-section: clamp(4.5rem, 8vw, 7.5rem);
+      
+      --container-max: 1280px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      border-radius: 0 !important; /* Strict Brutalist Aesthetic */
+      border-radius: 0 !important; /* Brutalist Architectural Identity */
       -webkit-font-smoothing: antialiased;
     }
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--sans);
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-body);
       font-size: 16px;
+      line-height: 1.6;
       overflow-x: hidden;
       width: 100%;
     }
@@ -61,14 +79,13 @@
       width: 100%;
       min-height: 100vh;
       background-image: 
-        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-      background-size: 40px 40px;
-      line-height: 1.6;
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
     }
 
-    /* Substrate CRT Scanline Effect (Optimized, non-blocking) */
-    .scanlines {
+    /* Subtle Non-Interfering Analog Degradation */
+    .crt-grain {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none;
@@ -77,123 +94,146 @@
         0deg,
         rgba(0, 0, 0, 0) 0px,
         rgba(0, 0, 0, 0) 2px,
-        rgba(0, 0, 0, 0.12) 2px,
-        rgba(0, 0, 0, 0.12) 4px
+        rgba(0, 0, 0, 0.08) 2px,
+        rgba(0, 0, 0, 0.08) 4px
       );
-      opacity: 0.25;
+      opacity: 0.2;
     }
 
-    /* Base Layout Container */
+    /* Container System */
     .container {
       width: 100%;
-      max-width: 1280px;
+      max-width: var(--container-max);
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding-left: clamp(1rem, 3vw, 2rem);
+      padding-right: clamp(1rem, 3vw, 2rem);
     }
 
-    /* TYPOGRAPHIC HIERARCHY */
+    /* ==========================================================================
+       TYPOGRAPHIC SCALE & HIERARCHY (RATIO 1.25+ MODULAR SCALE)
+       ========================================================================== */
     h1, h2, h3, h4 {
-      color: var(--text-hero);
-      font-weight: 800;
-      line-height: 1.15;
+      color: var(--text-white);
+      text-wrap: balance;
     }
 
-    .h1-title {
-      font-family: var(--display);
-      font-size: clamp(2rem, 5vw, 3.8rem);
+    /* H1: Primary Hero Title */
+    .display-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5.2vw, 4.25rem);
+      line-height: 1.05;
+      font-weight: 800;
       letter-spacing: -0.03em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: var(--space-md);
     }
 
-    .h2-title {
-      font-family: var(--display);
-      font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+    /* H2: Section Titles */
+    .display-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+      line-height: 1.15;
+      font-weight: 800;
       letter-spacing: -0.02em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
+      margin-bottom: var(--space-sm);
     }
 
-    .h3-title {
-      font-family: var(--sans);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    /* H3: Card & Block Titles */
+    .display-h3 {
+      font-family: var(--font-body);
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      line-height: 1.25;
       font-weight: 700;
-      text-transform: uppercase;
       letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
     }
 
-    .lead-text {
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 580px;
+    /* Narrative Prose (Strictly capped for optimal reading comfort) */
+    p {
+      text-wrap: pretty;
     }
 
-    .body-text {
-      font-size: 0.95rem;
-      color: var(--text-muted);
+    .lead-prose {
+      font-size: clamp(1.05rem, 1.6vw, 1.18rem);
       line-height: 1.65;
+      color: var(--text-secondary);
+      max-width: 58ch;
+      margin-bottom: var(--space-lg);
     }
 
-    .tag-telemetry {
-      font-family: var(--mono);
+    .lead-prose strong {
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    .body-prose {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      max-width: 65ch;
+    }
+
+    /* Kicker & Meta Telemetry */
+    .kicker-label {
+      font-family: var(--font-mono);
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--neon-lime);
+      color: var(--accent-solar);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 0.75rem;
+      margin-bottom: var(--space-sm);
     }
 
-    .tag-telemetry.red {
-      color: var(--accent);
+    .kicker-label.danger {
+      color: var(--accent-danger);
     }
 
     /* ==========================================================================
-       TOP TELEMETRY HEADER & VERSION SWITCHER
+       HEADER & DUAL-VERSION ARCHIVE SWITCHER
        ========================================================================== */
-    .top-telemetry {
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(7, 8, 10, 0.95);
+      background: rgba(6, 7, 9, 0.95);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-subtle);
       width: 100%;
     }
 
-    .telemetry-inner {
+    .header-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 58px;
-      gap: 0.75rem;
+      min-height: 60px;
+      gap: var(--space-md);
       flex-wrap: wrap;
-      padding-top: 0.4rem;
-      padding-bottom: 0.4rem;
+      padding-top: var(--space-xs);
+      padding-bottom: var(--space-xs);
     }
 
-    .brand-id {
+    .brand-mark {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: var(--space-sm);
       text-decoration: none;
-      color: #fff;
+      color: var(--text-white);
     }
 
-    .brand-id svg {
+    .brand-mark svg {
       width: 26px;
       height: 20px;
-      fill: #fff;
+      fill: var(--text-white);
       flex-shrink: 0;
     }
 
-    .brand-id .brand-name {
-      font-family: var(--mono);
+    .brand-mark-text {
+      font-family: var(--font-mono);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -201,331 +241,306 @@
       white-space: nowrap;
     }
 
-    .brand-badge {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      padding: 3px 8px;
-      background: rgba(255, 51, 51, 0.15);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .brand-badge::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      animation: pulse 1.4s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.8); }
-    }
-
-    /* Version Switcher */
-    .version-switch {
+    /* Version Switcher Bar */
+    .version-nav-pills {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 4px;
       background: rgba(255, 255, 255, 0.04);
       padding: 3px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-medium);
     }
 
-    .ver-pill {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      padding: 6px 12px;
+    .pill-link {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 6px 14px;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-weight: 600;
       letter-spacing: 0.04em;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
       white-space: nowrap;
     }
 
-    .ver-pill.active {
-      background: #ffffff;
+    .pill-link.active {
+      background: var(--text-white);
       color: #000000;
       font-weight: 700;
     }
 
-    .ver-pill:not(.active):hover {
-      color: #ffffff;
+    .pill-link:not(.active):hover {
+      color: var(--text-white);
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .sound-btn {
+    /* Audio Toggle */
+    .audio-toggle-btn {
       background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      font-family: var(--mono);
-      font-size: 0.75rem;
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
       font-weight: 600;
       padding: 6px 12px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       text-transform: uppercase;
-      transition: all 0.2s ease;
+      letter-spacing: 0.04em;
+      transition: all 0.15s ease;
       white-space: nowrap;
     }
 
-    .sound-btn:hover {
-      border-color: #fff;
-      color: #fff;
+    .audio-toggle-btn:hover {
+      border-color: var(--text-white);
+      color: var(--text-white);
     }
 
-    .sound-btn.is-active {
-      border-color: var(--neon-lime);
-      color: var(--neon-lime);
-      background: rgba(212, 255, 0, 0.08);
+    .audio-toggle-btn.is-active {
+      border-color: var(--accent-solar);
+      color: var(--accent-solar);
+      background: rgba(212, 255, 0, 0.06);
     }
 
-    .sound-bars {
+    .audio-wave-bars {
       display: inline-flex;
       align-items: flex-end;
       gap: 2px;
       height: 11px;
     }
 
-    .sound-bar {
+    .audio-bar {
       width: 2px;
       height: 3px;
       background: currentColor;
     }
 
-    .sound-btn.is-active .sound-bar:nth-child(1) { animation: wave 0.6s infinite alternate; }
-    .sound-btn.is-active .sound-bar:nth-child(2) { animation: wave 0.4s infinite 0.1s alternate; }
-    .sound-btn.is-active .sound-bar:nth-child(3) { animation: wave 0.7s infinite 0.2s alternate; }
+    .audio-toggle-btn.is-active .audio-bar:nth-child(1) { animation: soundBar 0.6s infinite alternate; }
+    .audio-toggle-btn.is-active .audio-bar:nth-child(2) { animation: soundBar 0.4s infinite 0.15s alternate; }
+    .audio-toggle-btn.is-active .audio-bar:nth-child(3) { animation: soundBar 0.7s infinite 0.25s alternate; }
 
-    @keyframes wave {
+    @keyframes soundBar {
       0% { height: 2px; }
       100% { height: 11px; }
     }
 
     /* ==========================================================================
-       HERO STAGE: THE MONOGRAPH
+       HERO EXHIBITION STAGE: PROPORTIONS & BREATHING ROOM
        ========================================================================== */
     .hero-section {
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-subtle);
       width: 100%;
+      position: relative;
     }
 
-    .hero-grid {
+    .hero-layout-split {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       min-height: calc(100vh - 60px);
       width: 100%;
     }
 
-    /* Left: Viewport Pane */
-    .hero-viewport-pane {
+    /* Left Stage: Featured Sneaker Viewport */
+    .hero-stage-pane {
       background: #040507;
-      border-right: 1px solid var(--border);
+      border-right: 1px solid var(--border-subtle);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
     }
 
-    .viewport-header {
-      padding: 0.85rem 1.25rem;
-      border-bottom: 1px solid var(--border);
+    .stage-status-bar {
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--mono);
+      font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--text-muted);
-      background: rgba(4, 5, 7, 0.9);
+      color: var(--text-secondary);
+      background: rgba(4, 5, 7, 0.95);
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: var(--space-xs);
     }
 
-    .viewport-canvas {
+    .stage-viewport-area {
       position: relative;
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1.5rem;
-      min-height: 360px;
-      background: radial-gradient(circle at center, rgba(30, 36, 50, 0.35) 0%, rgba(4, 5, 7, 0.95) 75%);
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+      background: radial-gradient(circle at 50% 50%, rgba(35, 45, 65, 0.35) 0%, rgba(4, 5, 7, 0.98) 75%);
     }
 
-    .hero-main-img {
+    .hero-prominent-img {
       max-width: 100%;
-      max-height: 62vh;
+      max-height: 64vh;
       width: auto;
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 20px 35px rgba(0,0,0,0.85));
+      filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.9));
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
-    /* Perspective Switcher Controls */
-    .perspectives-nav {
+    /* Viewport Perspective Selector (Touch Grid) */
+    .perspectives-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--border);
-      background: var(--bg-card);
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
       width: 100%;
     }
 
-    .cam-tab {
+    .perspective-tab {
       background: transparent;
       border: none;
-      border-right: 1px solid var(--border);
-      padding: 0.85rem 0.65rem;
+      border-right: 1px solid var(--border-subtle);
+      padding: var(--space-md) var(--space-sm);
       cursor: pointer;
       text-align: left;
-      font-family: var(--mono);
+      font-family: var(--font-mono);
       transition: all 0.15s ease;
       display: flex;
       flex-direction: column;
       gap: 3px;
     }
 
-    .cam-tab:last-child {
+    .perspective-tab:last-child {
       border-right: none;
     }
 
-    .cam-tab .tab-step {
+    .perspective-tab .tab-ordinal {
       font-size: 0.68rem;
-      color: var(--text-dim);
+      color: var(--text-tertiary);
       font-weight: 600;
     }
 
-    .cam-tab .tab-name {
+    .perspective-tab .tab-caption {
       font-size: 0.78rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--text-primary);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .cam-tab:hover {
+    .perspective-tab:hover {
       background: rgba(255, 255, 255, 0.05);
     }
 
-    .cam-tab.is-active {
-      background: #ffffff;
+    .perspective-tab.is-active {
+      background: var(--text-white);
       color: #000000;
     }
 
-    .cam-tab.is-active .tab-step,
-    .cam-tab.is-active .tab-name {
+    .perspective-tab.is-active .tab-ordinal,
+    .perspective-tab.is-active .tab-caption {
       color: #000000;
     }
 
-    /* Right: Hero Narrative Pane */
-    .hero-info-pane {
-      background: var(--bg);
+    /* Right Narrative & Technical Specs Pane */
+    .hero-narrative-pane {
+      background: var(--bg-canvas);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: clamp(2rem, 3.5vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
+      padding: clamp(2.5rem, 4vw, 4rem) clamp(1.75rem, 3.5vw, 3rem);
     }
 
-    .info-header-meta {
+    .narrative-top-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-tertiary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: var(--space-md);
+      margin-bottom: var(--space-lg);
     }
 
-    /* Spec Matrix Table */
-    .specs-table {
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      margin: 1.75rem 0;
-      font-family: var(--mono);
+    /* Technical Spec Matrix Table */
+    .specs-blueprint-card {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      margin: var(--space-xl) 0;
+      font-family: var(--font-mono);
       font-size: 0.82rem;
     }
 
-    .spec-row {
+    .blueprint-row {
       display: grid;
       grid-template-columns: 130px 1fr;
-      border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1rem;
-      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 1.15rem;
+      gap: var(--space-sm);
     }
 
-    .spec-row:last-child {
+    .blueprint-row:last-child {
       border-bottom: none;
     }
 
-    .spec-key {
-      color: var(--text-dim);
+    .blueprint-key {
+      color: var(--text-tertiary);
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
 
-    .spec-val {
-      color: #ffffff;
+    .blueprint-val {
+      color: var(--text-white);
       font-weight: 600;
     }
 
-    /* Actions CTA Group */
-    .cta-group {
+    /* Action CTA Buttons */
+    .cta-button-row {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
+      grid-template-columns: 1.35fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
     }
 
-    .btn-brutal-primary {
-      background: #ffffff;
+    .btn-solid-primary {
+      background: var(--text-white);
       color: #000000;
-      font-family: var(--mono);
-      font-size: 0.84rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      border: 1px solid #ffffff;
-      padding: 1.1rem 1.5rem;
+      border: 1px solid var(--text-white);
+      padding: 1.15rem 1.5rem;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       transition: all 0.2s ease;
       text-align: center;
     }
 
-    .btn-brutal-primary:hover {
-      background: var(--neon-lime);
-      border-color: var(--neon-lime);
+    .btn-solid-primary:hover {
+      background: var(--accent-solar);
+      border-color: var(--accent-solar);
       color: #000000;
-      box-shadow: 0 0 20px rgba(212, 255, 0, 0.35);
+      box-shadow: 0 0 24px rgba(212, 255, 0, 0.35);
     }
 
-    .btn-brutal-secondary {
+    .btn-outline-secondary {
       background: transparent;
-      color: var(--text-main);
-      font-family: var(--mono);
-      font-size: 0.84rem;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      border: 1px solid var(--border);
-      padding: 1.1rem 1.25rem;
+      border: 1px solid var(--border-medium);
+      padding: 1.15rem 1.25rem;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
@@ -535,156 +550,214 @@
       text-align: center;
     }
 
-    .btn-brutal-secondary:hover {
-      border-color: #ffffff;
-      color: #ffffff;
+    .btn-outline-secondary:hover {
+      border-color: var(--text-white);
+      color: var(--text-white);
       background: rgba(255, 255, 255, 0.06);
     }
 
     /* ==========================================================================
-       SECTION 2: TACTILE SOUND SYNTHESIZER
+       SECTION 2: TACTILE ACOUSTIC SYNTHESIZER
        ========================================================================== */
-    .section-synth {
-      border-bottom: 1px solid var(--border);
-      background: #090b10;
-      padding: clamp(3rem, 6vw, 5rem) 0;
+    .section-acoustics {
+      padding: var(--space-section) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background: #08090e;
     }
 
-    .synth-grid {
+    .synth-pads-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin: 2rem 0;
+      gap: var(--space-md);
+      margin: var(--space-2xl) 0 var(--space-xl) 0;
     }
 
-    .sound-pad {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 1.25rem;
+    .tactile-pad {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: var(--space-lg) var(--space-md);
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 150px;
+      min-height: 165px;
       transition: all 0.15s ease;
     }
 
-    .sound-pad:hover {
-      border-color: rgba(255, 255, 255, 0.35);
+    .tactile-pad:hover {
+      border-color: var(--border-strong);
       background: var(--bg-elevated);
       transform: translateY(-2px);
     }
 
-    .sound-pad:active, .sound-pad.triggered {
-      border-color: var(--neon-lime);
+    .tactile-pad:active, .tactile-pad.triggered {
+      border-color: var(--accent-solar);
       background: rgba(212, 255, 0, 0.08);
-      box-shadow: 0 0 15px rgba(212, 255, 0, 0.25);
+      box-shadow: 0 0 18px rgba(212, 255, 0, 0.25);
     }
 
-    .pad-top {
+    .pad-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--mono);
+      font-family: var(--font-mono);
       font-size: 0.72rem;
-      color: var(--text-dim);
+      color: var(--text-tertiary);
     }
 
-    .pad-led {
+    .pad-led-status {
       width: 7px;
       height: 7px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-medium);
     }
 
-    .sound-pad.triggered .pad-led {
-      background: var(--neon-lime);
-      border-color: var(--neon-lime);
+    .tactile-pad.triggered .pad-led-status {
+      background: var(--accent-solar);
+      border-color: var(--accent-solar);
     }
 
-    .pad-body {
-      margin: 0.75rem 0;
+    .pad-center-body {
+      margin: var(--space-sm) 0;
     }
 
-    .pad-title {
-      font-family: var(--mono);
-      font-size: 1rem;
+    .pad-sound-name {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-white);
       text-transform: uppercase;
       margin-bottom: 4px;
     }
 
-    .pad-desc {
+    .pad-sound-desc {
       font-size: 0.82rem;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       line-height: 1.4;
     }
 
-    .pad-cta {
-      font-family: var(--mono);
+    .pad-footer-action {
+      font-family: var(--font-mono);
       font-size: 0.72rem;
-      color: var(--text-dim);
+      color: var(--text-tertiary);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      border-top: 1px solid var(--border);
-      padding-top: 0.5rem;
+      letter-spacing: 0.05em;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: var(--space-xs);
     }
 
-    .sound-pad:hover .pad-cta {
-      color: #ffffff;
+    .tactile-pad:hover .pad-footer-action {
+      color: var(--text-white);
     }
 
-    /* Oscilloscope FFT Visualizer */
-    .oscilloscope-box {
+    /* Oscilloscope Telemetry Panel */
+    .oscilloscope-panel {
       background: #040507;
-      border: 1px solid var(--border);
-      padding: 1rem 1.25rem;
+      border: 1px solid var(--border-subtle);
+      padding: var(--space-md) var(--space-lg);
     }
 
-    .osc-telemetry-row {
+    .oscilloscope-meta {
       display: flex;
       justify-content: space-between;
-      font-family: var(--mono);
+      align-items: center;
+      font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--text-dim);
-      margin-bottom: 0.5rem;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-xs);
     }
 
     #oscCanvas {
       width: 100%;
-      height: 60px;
+      height: 65px;
       display: block;
     }
 
     /* ==========================================================================
-       SECTION 3: ARCHIVAL VISUAL EXHIBITION
+       SECTION 3: ASYMMETRIC EDITORIAL SPREAD (THE 4 FEATURED ASSETS)
        ========================================================================== */
-    .section-gallery {
-      padding: clamp(3rem, 6vw, 5rem) 0;
-      border-bottom: 1px solid var(--border);
+    .section-monograph-spread {
+      padding: var(--space-section) 0;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .gallery-grid {
+    /* Asymmetric Editorial Architecture (Breaks Monotonous Card Grids) */
+    .editorial-spread-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+      margin-top: var(--space-2xl);
+    }
+
+    /* Spread Row 1: The Monumental Pedestal Plate (Hero Feature) */
+    .feature-plate-heroic {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+      grid-template-columns: 1.25fr 0.75fr;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
     }
 
-    .card-exhibit {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+    .feature-plate-heroic:hover {
+      border-color: var(--border-medium);
+    }
+
+    .plate-hero-media {
+      position: relative;
+      background: #020304;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+
+    .plate-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .feature-plate-heroic:hover .plate-hero-media img {
+      transform: scale(1.02);
+    }
+
+    .plate-hero-caption {
+      padding: clamp(2rem, 3.5vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    .plate-meta-badge {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Spread Row 2: Dynamic Diptych (Kinetics & Macro Detail) */
+    .diptych-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .diptych-card {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
       display: flex;
       flex-direction: column;
       overflow: hidden;
       transition: border-color 0.2s ease;
     }
 
-    .card-exhibit:hover {
-      border-color: var(--border-strong);
+    .diptych-card:hover {
+      border-color: var(--border-medium);
     }
 
-    .card-media {
+    .diptych-media {
       position: relative;
       width: 100%;
       background: #020304;
@@ -692,420 +765,417 @@
       overflow: hidden;
     }
 
-    .card-media img {
+    .diptych-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
     }
 
-    .card-exhibit:hover .card-media img {
+    .diptych-card:hover .diptych-media img {
       transform: scale(1.02);
     }
 
-    .card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .card-meta-line {
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--text-dim);
+    .diptych-content {
+      padding: var(--space-lg);
+      border-top: 1px solid var(--border-subtle);
     }
 
     /* ==========================================================================
-       SECTION 4: TECHNICAL SPEC MATRIX
+       SECTION 4: TECHNICAL SPEC MATRIX (4 BALANCED COLUMNS)
        ========================================================================== */
-    .section-specs {
-      padding: clamp(3rem, 6vw, 5rem) 0;
-      border-bottom: 1px solid var(--border);
+    .section-specifications {
+      padding: var(--space-section) 0;
+      border-bottom: 1px solid var(--border-subtle);
       background: #08090d;
     }
 
-    .specs-grid-deconstructed {
+    .specs-modular-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2.5rem;
+      background: var(--border-subtle);
+      border: 1px solid var(--border-subtle);
+      margin-top: var(--space-2xl);
     }
 
-    .spec-block {
-      background: var(--bg);
-      padding: 1.75rem 1.25rem;
+    .spec-column-box {
+      background: var(--bg-canvas);
+      padding: var(--space-xl) var(--space-lg);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 240px;
+      min-height: 250px;
       transition: background 0.2s ease;
     }
 
-    .spec-block:hover {
-      background: var(--bg-card);
+    .spec-column-box:hover {
+      background: var(--bg-surface);
     }
 
-    .spec-id {
-      font-family: var(--mono);
+    .spec-serial-id {
+      font-family: var(--font-mono);
       font-size: 0.78rem;
-      color: var(--accent);
+      color: var(--accent-danger);
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: var(--space-md);
     }
 
-    .spec-footer-bar {
-      border-top: 1px solid var(--border);
-      padding-top: 0.75rem;
-      margin-top: 1.25rem;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
+    .spec-bottom-meta {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: var(--space-sm);
+      margin-top: var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-tertiary);
       display: flex;
       justify-content: space-between;
     }
 
     /* ==========================================================================
-       SECTION 5: PHILOSOPHY MANIFESTO
+       SECTION 5: PHILOSOPHICAL MANIFESTO
        ========================================================================== */
-    .section-manifesto {
+    .section-manifesto-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .manifesto-left-pane {
-      padding: clamp(2.5rem, 5vw, 4.5rem);
-      border-right: 1px solid var(--border);
+    .manifesto-callout-pane {
+      padding: clamp(3rem, 6vw, 5rem);
+      border-right: 1px solid var(--border-subtle);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: radial-gradient(circle at 10% 20%, rgba(255, 51, 51, 0.07) 0%, transparent 60%);
+      background: radial-gradient(circle at 15% 25%, rgba(255, 42, 42, 0.08) 0%, transparent 60%);
     }
 
-    .manifesto-right-pane {
-      padding: clamp(2.5rem, 5vw, 4.5rem);
+    .manifesto-reading-pane {
+      padding: clamp(3rem, 6vw, 5rem);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: var(--bg-card);
-      gap: 1.25rem;
+      background: var(--bg-surface);
+      gap: var(--space-md);
     }
 
     /* ==========================================================================
-       SECTION 6: ALLOCATION TERMINAL
+       SECTION 6: BATCH ALLOCATION TERMINAL
        ========================================================================== */
-    .section-allocation {
-      padding: clamp(3.5rem, 6vw, 6rem) 0;
-      border-bottom: 1px solid var(--border);
+    .section-allocation-desk {
+      padding: var(--space-section) 0;
+      border-bottom: 1px solid var(--border-subtle);
       background: #050608;
     }
 
-    .terminal-window {
+    .terminal-console-box {
       max-width: 820px;
       margin: 0 auto;
-      border: 1px solid var(--border-strong);
-      background: var(--bg-card);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.7);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-surface);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75);
     }
 
-    .terminal-titlebar {
-      padding: 0.75rem 1.25rem;
-      background: #10131a;
-      border-bottom: 1px solid var(--border);
+    .console-header-bar {
+      padding: var(--space-md) var(--space-lg);
+      background: #0f121a;
+      border-bottom: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--mono);
+      font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: var(--space-xs);
     }
 
-    .terminal-body {
-      padding: clamp(1.75rem, 4vw, 3rem);
+    .console-form-container {
+      padding: clamp(2rem, 4vw, 3.25rem);
     }
 
-    .form-row {
+    .form-two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
     }
 
-    .field-label {
+    .form-input-label {
       display: block;
-      font-family: var(--mono);
+      font-family: var(--font-mono);
       font-size: 0.78rem;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xs);
       font-weight: 600;
     }
 
-    .field-input {
+    .form-text-input {
       width: 100%;
       background: #06070a;
-      border: 1px solid var(--border);
-      color: #ffffff;
-      font-family: var(--mono);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-white);
+      font-family: var(--font-mono);
       font-size: 0.95rem;
-      padding: 0.9rem 1rem;
+      padding: 0.95rem 1.15rem;
       outline: none;
       transition: border-color 0.2s ease;
     }
 
-    .field-input:focus {
-      border-color: var(--neon-lime);
+    .form-text-input:focus {
+      border-color: var(--accent-solar);
     }
 
-    .sizes-grid {
+    .sizes-flex-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 6px;
       margin-top: 6px;
-      margin-bottom: 1.75rem;
+      margin-bottom: var(--space-xl);
     }
 
-    .btn-size {
+    .size-choice-btn {
       background: #06070a;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      font-family: var(--mono);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
       font-size: 0.82rem;
-      padding: 0.75rem 0.25rem;
+      padding: 0.85rem 0.25rem;
       text-align: center;
       cursor: pointer;
       transition: all 0.15s ease;
     }
 
-    .btn-size:hover {
-      border-color: #ffffff;
-      color: #ffffff;
+    .size-choice-btn:hover {
+      border-color: var(--text-white);
+      color: var(--text-white);
     }
 
-    .btn-size.selected {
-      background: #ffffff;
+    .size-choice-btn.selected {
+      background: var(--text-white);
       color: #000000;
       font-weight: 700;
-      border-color: #ffffff;
+      border-color: var(--text-white);
     }
 
-    .pass-container {
-      margin-top: 1.5rem;
-      padding: 1.25rem;
-      border: 1px dashed var(--neon-lime);
+    .allocated-pass-card {
+      margin-top: var(--space-lg);
+      padding: var(--space-lg);
+      border: 1px dashed var(--accent-solar);
       background: rgba(212, 255, 0, 0.03);
-      font-family: var(--mono);
+      font-family: var(--font-mono);
       display: none;
     }
 
-    .pass-container.show {
+    .allocated-pass-card.show {
       display: block;
-      animation: fadeIn 0.3s ease;
+      animation: passFade 0.3s ease;
+    }
+
+    @keyframes passFade {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ==========================================================================
        FOOTER
        ========================================================================== */
-    footer {
+    .site-footer {
       background: #040507;
-      padding: 3.5rem 0 2rem 0;
-      border-top: 1px solid var(--border);
-      font-family: var(--mono);
+      padding: var(--space-2xl) 0 var(--space-xl) 0;
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
       font-size: 0.78rem;
-      color: var(--text-dim);
+      color: var(--text-tertiary);
     }
 
-    .footer-grid {
+    .footer-content-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 2.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2.5rem;
-      margin-bottom: 1.5rem;
+      gap: var(--space-2xl);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: var(--space-2xl);
+      margin-bottom: var(--space-lg);
     }
 
-    .footer-heading {
-      color: #ffffff;
+    .footer-col-title {
+      color: var(--text-white);
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 0.85rem;
+      margin-bottom: var(--space-md);
     }
 
-    .footer-links {
+    .footer-nav-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: var(--space-xs);
     }
 
-    .footer-links a {
-      color: var(--text-muted);
+    .footer-nav-list a {
+      color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.15s ease;
     }
 
-    .footer-links a:hover {
-      color: #ffffff;
+    .footer-nav-list a:hover {
+      color: var(--text-white);
     }
 
-    .footer-bottom-row {
+    .footer-colophon-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.72rem;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: var(--space-md);
     }
 
     /* ==========================================================================
-       RIGOROUS RESPONSIVE MEDIA QUERIES (320px -> 1280px)
+       RESPONSIVE ADAPTATIONS (320px -> 1024px)
        ========================================================================== */
     @media (max-width: 1024px) {
-      .hero-grid {
+      .hero-layout-split {
         grid-template-columns: 1fr;
       }
-      .hero-viewport-pane {
+      .hero-stage-pane {
         border-right: none;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border-subtle);
       }
-      .viewport-canvas {
-        min-height: 45vh;
-        padding: 1.5rem;
+      .stage-viewport-area {
+        min-height: 46vh;
+        padding: var(--space-lg);
       }
-      .hero-main-img {
+      .hero-prominent-img {
         max-height: 48vh;
       }
-      .synth-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .specs-grid-deconstructed {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .section-manifesto {
+      .feature-plate-heroic {
         grid-template-columns: 1fr;
       }
-      .manifesto-left-pane {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
+      .plate-hero-caption {
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
       }
-      .footer-grid {
+      .diptych-grid {
+        grid-template-columns: 1fr;
+      }
+      .synth-pads-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .specs-modular-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .section-manifesto-split {
+        grid-template-columns: 1fr;
+      }
+      .manifesto-callout-pane {
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+      .footer-content-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 768px) {
-      .top-telemetry .telemetry-inner {
+      .header-bar {
         flex-direction: column;
         align-items: flex-start;
-        padding-top: 0.6rem;
-        padding-bottom: 0.6rem;
-        gap: 0.6rem;
+        gap: var(--space-sm);
+        padding-top: var(--space-sm);
+        padding-bottom: var(--space-sm);
       }
-      .telemetry-row-mobile {
+      .header-top-row-mobile {
         display: flex;
         width: 100%;
         justify-content: space-between;
         align-items: center;
       }
-      .version-switch {
+      .version-nav-pills {
         width: 100%;
-        justify-content: stretch;
       }
-      .ver-pill {
+      .pill-link {
         flex: 1;
         text-align: center;
         padding: 8px 6px;
       }
-      .perspectives-nav {
+      .perspectives-strip {
         grid-template-columns: repeat(2, 1fr);
       }
-      .cam-tab {
-        border-bottom: 1px solid var(--border);
+      .perspective-tab {
+        border-bottom: 1px solid var(--border-subtle);
       }
-      .cam-tab:nth-child(2) {
+      .perspective-tab:nth-child(2) {
         border-right: none;
       }
-      .cta-group {
+      .cta-button-row {
         grid-template-columns: 1fr;
       }
-      .gallery-grid {
+      .specs-modular-grid {
         grid-template-columns: 1fr;
       }
-      .specs-grid-deconstructed {
+      .form-two-column {
         grid-template-columns: 1fr;
       }
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-      .sizes-grid {
+      .sizes-flex-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-      .footer-grid {
+      .footer-content-grid {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 480px) {
-      .container {
-        padding: 0 1rem;
-      }
-      .synth-grid {
+      .synth-pads-grid {
         grid-template-columns: 1fr;
       }
-      .viewport-canvas {
-        min-height: 38vh;
-        padding: 1rem 0.5rem;
+      .stage-viewport-area {
+        min-height: 40vh;
+        padding: var(--space-md) var(--space-xs);
       }
-      .spec-row {
-        grid-template-columns: 105px 1fr;
+      .blueprint-row {
+        grid-template-columns: 110px 1fr;
         font-size: 0.78rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Optimized CRT overlay -->
-  <div class="scanlines"></div>
+  <!-- Analog Substrate Atmosphere -->
+  <div class="crt-grain"></div>
 
   <!-- ==========================================================================
-       TOP TELEMETRY & VERSION SWITCHER
-       ========================================================================== */
-  <header class="top-telemetry">
+       HEADER & VERSION CONTROLS
+       ========================================================================== -->
+  <header class="site-header">
     <div class="container">
-      <div class="telemetry-inner">
-        <div class="telemetry-row-mobile">
-          <a href="index.html" class="brand-id">
+      <div class="header-bar">
+        <div class="header-top-row-mobile">
+          <a href="index.html" class="brand-mark">
             <svg viewBox="0 0 24 24">
               <path d="M2.5 19h3.2L11 8H7.8L2.5 19zm7 0h3.2L18 4h-3.2L9.5 19zm7 0h3.2L24 11h-3.2L16.5 19z"/>
             </svg>
-            <span class="brand-name">ADIDAS ORIGINALS LABS</span>
+            <span class="brand-mark-text">ADIDAS ORIGINALS LABS</span>
           </a>
 
-          <button class="sound-btn" id="globalSoundToggle" title="Ativar Áudio Tátil">
-            <span class="sound-bars">
-              <span class="sound-bar"></span>
-              <span class="sound-bar"></span>
-              <span class="sound-bar"></span>
+          <button class="audio-toggle-btn" id="globalSoundToggle" title="Ativar Áudio Tátil">
+            <span class="audio-wave-bars">
+              <span class="audio-bar"></span>
+              <span class="audio-bar"></span>
+              <span class="audio-bar"></span>
             </span>
             <span id="soundStatusText">AUDIO: ON</span>
           </button>
         </div>
 
-        <!-- Universal Version Switcher -->
-        <nav class="version-switch" aria-label="Seletor de Versão">
-          <a href="index.html" class="ver-pill active">
-            ● V2.0 // CONCEITUAL
+        <!-- Dual Version Switcher -->
+        <nav class="version-nav-pills" aria-label="Seletor de Versão">
+          <a href="index.html" class="pill-link active">
+            ● V2.0 // MONOGRAFIA CONCEITUAL
           </a>
-          <a href="v1.html" class="ver-pill">
+          <a href="v1.html" class="pill-link">
             ○ V1.0 // ACERVO 1996
           </a>
         </nav>
@@ -1118,22 +1188,21 @@
          HERO SECTION: MONOGRAPH VIEWPORT
          ========================================================================== -->
     <section class="hero-section">
-      <div class="hero-grid">
-        <!-- Left: Interactive Perspective Viewport -->
-        <div class="hero-viewport-pane">
-          <div class="viewport-header">
-            <div>CÂMERA: <span id="camTag" style="color: var(--neon-lime); font-weight: 700;">CAM_01 // O MONÓLITO</span></div>
-            <div>SHUTTER: 1/500s ƒ/2.8</div>
-            <div class="brand-badge">SISTEMA ATIVO</div>
+      <div class="hero-layout-split">
+        <!-- Left: Prominent Featured Sneaker Stage -->
+        <div class="hero-stage-pane">
+          <div class="stage-status-bar">
+            <div>VISÃO ATIVA: <span id="camTag" style="color: var(--accent-solar); font-weight: 700;">01 // O MONÓLITO</span></div>
+            <div>RESOLUÇÃO: 1440px OPTIMIZED</div>
+            <div style="color: var(--accent-solar); font-weight: 700;">● TELEMETRIA ATIVA</div>
           </div>
 
-          <div class="viewport-canvas">
-            <!-- Hero Image with High Fetch Priority and Explicit Dimensions -->
+          <div class="stage-viewport-area">
             <img 
               id="heroViewerImg" 
               src="assets_v2/hero_adidas_ramp_concept.jpg" 
-              alt="Adidas Ramp 90s - Vista Conceitual Monolítica em Concreto" 
-              class="hero-main-img"
+              alt="Adidas Ramp 90s — Vista Conceitual Monolítica em Concreto" 
+              class="hero-prominent-img"
               width="1440"
               height="960"
               fetchpriority="high"
@@ -1141,71 +1210,71 @@
             >
           </div>
 
-          <!-- 4-Perspective Tabs -->
-          <div class="perspectives-nav">
-            <button class="cam-tab is-active" data-src="assets_v2/hero_adidas_ramp_concept.jpg" data-name="CAM_01 // O MONÓLITO" data-sound="click">
-              <span class="tab-step">01 // STILL</span>
-              <span class="tab-name">MONÓLITO</span>
+          <!-- 4 Perspective Switcher Strip -->
+          <div class="perspectives-strip">
+            <button class="perspective-tab is-active" data-src="assets_v2/hero_adidas_ramp_concept.jpg" data-name="01 // O MONÓLITO" data-sound="click">
+              <span class="tab-ordinal">VISÃO 01</span>
+              <span class="tab-caption">O MONÓLITO</span>
             </button>
-            <button class="cam-tab" data-src="assets_v2/concept_product_still.jpg" data-name="CAM_02 // PEDESTAL ESTÚDIO" data-sound="click">
-              <span class="tab-step">02 // ESTÚDIO</span>
-              <span class="tab-name">PEDESTAL KRAFT</span>
+            <button class="perspective-tab" data-src="assets_v2/concept_product_still.jpg" data-name="02 // PEDESTAL KRAFT" data-sound="click">
+              <span class="tab-ordinal">VISÃO 02</span>
+              <span class="tab-caption">PEDESTAL KRAFT</span>
             </button>
-            <button class="cam-tab" data-src="assets_v2/concept_skate_action.jpg" data-name="CAM_03 // KINETIC ACTION" data-sound="click">
-              <span class="tab-step">03 // KINETICS</span>
-              <span class="tab-name">VERT FLIGHT</span>
+            <button class="perspective-tab" data-src="assets_v2/concept_skate_action.jpg" data-name="03 // KINETIC ACTION" data-sound="click">
+              <span class="tab-ordinal">VISÃO 03</span>
+              <span class="tab-caption">KINETIC FLIGHT</span>
             </button>
-            <button class="cam-tab" data-src="assets_v2/concept_macro_detail.jpg" data-name="CAM_04 // MACRO TEXTURA" data-sound="click">
-              <span class="tab-step">04 // MACRO</span>
-              <span class="tab-name">SOLA & SUEDE</span>
+            <button class="perspective-tab" data-src="assets_v2/concept_macro_detail.jpg" data-name="04 // MACRO TEXTURA" data-sound="click">
+              <span class="tab-ordinal">VISÃO 04</span>
+              <span class="tab-caption">MACRO GUM-SOLE</span>
             </button>
           </div>
         </div>
 
-        <!-- Right: Architectural Telemetry & Specs -->
-        <div class="hero-info-pane">
+        <!-- Right: Structured Typographic Narrative Pane -->
+        <div class="hero-narrative-pane">
           <div>
-            <div class="info-header-meta">
-              <span>[ ARQUIVO DE ENGENHARIA ]</span>
+            <div class="narrative-top-meta">
+              <span>ARQUIVO HISTÓRICO ADIDAS</span>
               <span>HERZOGENAURACH // 1994 -> 2026</span>
             </div>
 
-            <div class="tag-telemetry red">/// RELANÇAMENTO CONCEITUAL</div>
-            <h1 class="h1-title">ADIDAS<br>RAMP 90s</h1>
+            <div class="kicker-label danger">RELANÇAMENTO CONCEITUAL LIMITADO</div>
+            <h1 class="display-h1">ADIDAS<br>RAMP 90s</h1>
 
-            <p class="lead-text">
-              A silhueta cultuada das pistas dos anos 90 reconstruída em <strong>pureza arquitetônica bruta</strong>: camurça marinho pesada de 2.4mm, cupsole knurled vulcanizado e proporções autênticas da era vert.
+            <p class="lead-prose">
+              A silhueta lendária do vert dos anos 90 reconstruída em <strong>pureza arquitetônica monumental</strong>: camurça marinho de 2.4mm, cupsole vulcanizado knurled e acolchoamento balístico original.
             </p>
 
-            <!-- Precision Specs Table -->
-            <div class="specs-table">
-              <div class="spec-row">
-                <span class="spec-key">ANO BASE</span>
-                <span class="spec-val">1994 // PISTAS VERT & STREET</span>
+            <!-- Precision Technical Blueprint Table -->
+            <div class="specs-blueprint-card">
+              <div class="blueprint-row">
+                <span class="blueprint-key">SILHUETA</span>
+                <span class="blueprint-val">1994 // PISTAS VERT & STREET</span>
               </div>
-              <div class="spec-row">
-                <span class="spec-key">MATERIAIS</span>
-                <span class="spec-val">WOLVERINE NAVY SUEDE / 100% GUM RUBBER</span>
+              <div class="blueprint-row">
+                <span class="blueprint-key">CABEDAL</span>
+                <span class="blueprint-val">WOLVERINE NAVY SUEDE 2.4MM</span>
               </div>
-              <div class="spec-row">
-                <span class="spec-key">CHASSIS</span>
-                <span class="spec-val">CUPSOLE 360° COM REFORÇO LATERAL</span>
+              <div class="blueprint-row">
+                <span class="blueprint-key">SOLADO</span>
+                <span class="blueprint-val">100% GUM RUBBER KNURLED CUPSOLE</span>
               </div>
-              <div class="spec-row">
-                <span class="spec-key">PRODUÇÃO</span>
-                <span class="spec-val">LOTE LIMITADO: 1.000 PARES NUMERADOS</span>
+              <div class="blueprint-row">
+                <span class="blueprint-key">TIRAGEM</span>
+                <span class="blueprint-val">1.000 UNIDADES NUMERADAS MUNDIALMENTE</span>
               </div>
             </div>
           </div>
 
-          <div class="cta-group">
-            <a href="#allocation" class="btn-brutal-primary">
-              <span>RESERVAR PAR</span>
+          <div class="cta-button-row">
+            <a href="#allocation" class="btn-solid-primary">
+              <span>RESERVAR PAR NO LOTE</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
-            <a href="#manifesto" class="btn-brutal-secondary">
+            <a href="#manifesto" class="btn-outline-secondary">
               <span>LER MANIFESTO</span>
             </a>
           </div>
@@ -1214,71 +1283,71 @@
     </section>
 
     <!-- ==========================================================================
-         SECTION 2: TACTILE SOUND SYNTHESIZER (WEB AUDIO API)
+         SECTION 2: TACTILE ACOUSTIC SYNTHESIZER
          ========================================================================== -->
-    <section class="section-synth">
+    <section class="section-acoustics">
       <div class="container">
-        <div class="tag-telemetry">/// SINTETIZADOR ACÚSTICO TÁTIL</div>
-        <h2 class="h2-title">A ACÚSTICA DO CONCRETO</h2>
-        <p class="lead-text">
-          Toque nos pads abaixo para sintetizar fisicamente em tempo real as frequências do skate: estalo de madeira maple, atrito da cantoneira e centrifugação dos rolamentos.
+        <div class="kicker-label">SÍNTESE ACÚSTICA TÁTIL</div>
+        <h2 class="display-h2">A FÍSICA DO CONCRETO</h2>
+        <p class="lead-prose">
+          Dispare as frequências sintetizadas via Web Audio API. O estalo seco do tail de maple, o atrito abrasivo do coping metálico e o giro livre das esferas de cerâmica.
         </p>
 
-        <div class="synth-grid">
-          <div class="sound-pad" data-sound-type="ollie">
-            <div class="pad-top">
+        <div class="synth-pads-grid">
+          <div class="tactile-pad" data-sound-type="ollie">
+            <div class="pad-header">
               <span>85Hz - 1.2kHz</span>
-              <div class="pad-led"></div>
+              <div class="pad-led-status"></div>
             </div>
-            <div class="pad-body">
-              <div class="pad-title">OLLIE POP</div>
-              <div class="pad-desc">Estalo seco de lâmina de maple 7 folhas no asfalto.</div>
+            <div class="pad-center-body">
+              <div class="pad-sound-name">OLLIE POP</div>
+              <div class="pad-sound-desc">Estalo seco de lâmina de maple 7 folhas sobre o asfalto.</div>
             </div>
-            <div class="pad-cta">[ DISPARAR SOM ]</div>
+            <div class="pad-footer-action">[ DISPARAR SOM ]</div>
           </div>
 
-          <div class="sound-pad" data-sound-type="grind">
-            <div class="pad-top">
+          <div class="tactile-pad" data-sound-type="grind">
+            <div class="pad-header">
               <span>320Hz - 4.8kHz</span>
-              <div class="pad-led"></div>
+              <div class="pad-led-status"></div>
             </div>
-            <div class="pad-body">
-              <div class="pad-title">COPING GRIND</div>
-              <div class="pad-desc">Atrito abrasivo de truck e borracha na cantoneira.</div>
+            <div class="pad-center-body">
+              <div class="pad-sound-name">COPING GRIND</div>
+              <div class="pad-sound-desc">Atrito abrasivo de truck e sola gum sobre cantoneira de ferro.</div>
             </div>
-            <div class="pad-cta">[ DISPARAR SOM ]</div>
+            <div class="pad-footer-action">[ DISPARAR SOM ]</div>
           </div>
 
-          <div class="sound-pad" data-sound-type="bearing">
-            <div class="pad-top">
+          <div class="tactile-pad" data-sound-type="bearing">
+            <div class="pad-header">
               <span>2.4kHz - 8.6kHz</span>
-              <div class="pad-led"></div>
+              <div class="pad-led-status"></div>
             </div>
-            <div class="pad-body">
-              <div class="pad-title">BEARING WHIRL</div>
-              <div class="pad-desc">Centrifugação livre de rolamentos cerâmicos ABEC-9.</div>
+            <div class="pad-center-body">
+              <div class="pad-sound-name">BEARING WHIRL</div>
+              <div class="pad-sound-desc">Centrifugação livre de rolamentos cerâmicos ABEC-9.</div>
             </div>
-            <div class="pad-cta">[ DISPARAR SOM ]</div>
+            <div class="pad-footer-action">[ DISPARAR SOM ]</div>
           </div>
 
-          <div class="sound-pad" data-sound-type="stomp">
-            <div class="pad-top">
+          <div class="tactile-pad" data-sound-type="stomp">
+            <div class="pad-header">
               <span>45Hz - 380Hz</span>
-              <div class="pad-led"></div>
+              <div class="pad-led-status"></div>
             </div>
-            <div class="pad-body">
-              <div class="pad-title">IMPACT STOMP</div>
-              <div class="pad-desc">Grave denso de absorção de impacto em degraus.</div>
+            <div class="pad-center-body">
+              <div class="pad-sound-name">IMPACT STOMP</div>
+              <div class="pad-sound-desc">Grave denso de absorção de impacto em degraus de concreto.</div>
             </div>
-            <div class="pad-cta">[ DISPARAR SOM ]</div>
+            <div class="pad-footer-action">[ DISPARAR SOM ]</div>
           </div>
         </div>
 
         <!-- Oscilloscope Box -->
-        <div class="oscilloscope-box">
-          <div class="osc-telemetry-row">
+        <div class="oscilloscope-panel">
+          <div class="oscilloscope-meta">
             <span>OSCILOSCÓPIO EM TEMPO REAL // ANÁLISE FFT</span>
-            <span id="oscHz">STATUS: PRONTO</span>
+            <span id="oscHz" style="color: var(--accent-solar);">STATUS: AGUARDANDO DISPARO</span>
           </div>
           <canvas id="oscCanvas"></canvas>
         </div>
@@ -1286,84 +1355,59 @@
     </section>
 
     <!-- ==========================================================================
-         SECTION 3: ARCHIVAL VISUAL EXHIBITION (THE 4 AI CONCEPTS)
+         SECTION 3: ASYMMETRIC EDITORIAL SPREAD
          ========================================================================== -->
-    <section class="section-gallery">
+    <section class="section-monograph-spread">
       <div class="container">
-        <div class="tag-telemetry">/// CONCEITUAÇÃO VISUAL EXCLUSIVA</div>
-        <h2 class="h2-title">O MONOGRÁFICO DE ARQUIVO</h2>
-        <p class="lead-text">
-          Quatro perspectivas capturadas com direção de arte contemporânea para dissecar a biomecânica e textura do Adidas Ramp 90s.
+        <div class="kicker-label">CONCEITUAÇÃO VISUAL DE ARQUIVO</div>
+        <h2 class="display-h2">O MONOGRÁFICO VISUAL</h2>
+        <p class="lead-prose">
+          Perspectivas concebidas para dissecar a biomecânica, texturas e proporções do Adidas Ramp 90s como uma escultura brutalista contemporânea.
         </p>
 
-        <div class="gallery-grid">
-          <!-- Card 1: Pedestal Studio Still -->
-          <article class="card-exhibit">
-            <div class="card-media">
-              <img src="assets_v2/concept_product_still.jpg" alt="Adidas Ramp em Pedestal Brutalista" loading="lazy" decoding="async">
+        <div class="editorial-spread-container">
+          <!-- Spread 1: Heroic Full-Width Pedestal Plate -->
+          <article class="feature-plate-heroic">
+            <div class="plate-hero-media">
+              <img src="assets_v2/concept_product_still.jpg" alt="Adidas Ramp em Pedestal de Kraft e Lixa" loading="lazy" decoding="async">
             </div>
-            <div class="card-body">
-              <div class="card-meta-line">
-                <span>PRANCHA_01 // STILL LIFE</span>
-                <span>KRAFT & GRIP PEDESTAL</span>
-              </div>
-              <h3 class="h3-title">ESCULTURA EM CAMURÇA MARINHO</h3>
-              <p class="body-text">
-                O tênis repousa sobre camadas alternadas de papelão kraft reciclado e lixa de skate preta de alta granulação, banhado por luz direcional de galeria.
+            <div class="plate-hero-caption">
+              <div class="plate-meta-badge">PRANCHA MONUMENTAL 01 // NATUREZA MORTA</div>
+              <h3 class="display-h3" style="font-size: 1.5rem; margin-bottom: var(--space-sm);">ESCULTURA EM CAMURÇA MARINHO</h3>
+              <p class="body-prose" style="font-size: 1.05rem; line-height: 1.7;">
+                O sneaker repousa sobre camadas alternadas de papelão kraft reciclado e lixa de skate preta de alta granulação, banhado por luz direcional de galeria contemporânea. A interação entre o suede macio e o corte bruto da lixa traduz a tensão da rua.
               </p>
             </div>
           </article>
 
-          <!-- Card 2: Vert Action in Brutalist Architecture -->
-          <article class="card-exhibit">
-            <div class="card-media">
-              <img src="assets_v2/concept_skate_action.jpg" alt="Manobra de skate na arquitetura brutalista ao entardecer" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <div class="card-meta-line">
-                <span>PRANCHA_02 // CINÉTICA</span>
-                <span>RAW CONCRETE PLAZA</span>
+          <!-- Spread 2: Dynamic Diptych (Kinetics + Macro) -->
+          <div class="diptych-grid">
+            <article class="diptych-card">
+              <div class="diptych-media">
+                <img src="assets_v2/concept_skate_action.jpg" alt="Manobra de skate na arquitetura brutalista ao entardecer" loading="lazy" decoding="async">
               </div>
-              <h3 class="h3-title">KINETIC FLIGHT // GRAVIDADE ZERO</h3>
-              <p class="body-text">
-                Transição aérea no concreto cru. A robustez da silhueta dos anos 90 garante máxima estabilidade onde o skate encontra a arquitetura.
-              </p>
-            </div>
-          </article>
+              <div class="diptych-content">
+                <div class="plate-meta-badge">PRANCHA 02 // CINÉTICA VERT</div>
+                <h3 class="display-h3">KINETIC FLIGHT // GRAVIDADE ZERO</h3>
+                <p class="body-prose">
+                  Transição aérea capturada no crepúsculo sobre concreto cru. A robustez da silhueta dos anos 90 garante a máxima absorção de impacto nos gaps mais implacáveis.
+                </p>
+              </div>
+            </article>
 
-          <!-- Card 3: Macro Texture & Gum Sole -->
-          <article class="card-exhibit">
-            <div class="card-media">
-              <img src="assets_v2/concept_macro_detail.jpg" alt="Detalhe macro da sola de borracha e camurça" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <div class="card-meta-line">
-                <span>PRANCHA_03 // TÁTIL MACRO</span>
-                <span>HERRINGBONE GUM PATTERN</span>
+            <article class="diptych-card">
+              <div class="diptych-media">
+                <img src="assets_v2/concept_macro_detail.jpg" alt="Detalhe macro da sola de borracha e camurça" loading="lazy" decoding="async">
               </div>
-              <h3 class="h3-title">GRIP HERMÉTICO & VULCANIZAÇÃO</h3>
-              <p class="body-text">
-                Sulcos em espinha de peixe na borracha vegetal crua, costuras duplas com fio de nylon marítimo e o Trefoil estampado a quente no calcanhar.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 4: Hero Monolith -->
-          <article class="card-exhibit">
-            <div class="card-media">
-              <img src="assets_v2/hero_adidas_ramp_concept.jpg" alt="Adidas Ramp vista lateral em concreto" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <div class="card-meta-line">
-                <span>PRANCHA_04 // O MONÓLITO</span>
-                <span>ORIGINAL COLORWAY</span>
+              <div class="diptych-content">
+                <div class="plate-meta-badge">PRANCHA 03 // TÁTIL MACRO</div>
+                <h3 class="display-h3">GRIP HERMÉTICO & VULCANIZAÇÃO</h3>
+                <p class="body-prose">
+                  Sulcos em espinha de peixe na borracha vegetal crua, costuras duplas com fio de nylon marítimo e o logotipo Trefoil estampado a quente no calcanhar.
+                </p>
               </div>
-              <h3 class="h3-title">O ÍCONE EM PERFIL DEFINITIVO</h3>
-              <p class="body-text">
-                As três listras brancas serrilhadas em couro nappa puro sobre a base de camurça azul profundo. A proporção volumosa original de 1994 preservada.
-              </p>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -1371,66 +1415,66 @@
     <!-- ==========================================================================
          SECTION 4: TECHNICAL SPEC MATRIX
          ========================================================================== -->
-    <section class="section-specs">
+    <section class="section-specifications">
       <div class="container">
-        <div class="tag-telemetry">/// DECOMPOSIÇÃO ESTRUTURAL</div>
-        <h2 class="h2-title">ENGENHARIA BALÍSTICA DE PISTA</h2>
-        <p class="lead-text">
-          Desenvolvido para suportar lixa abrasiva grau 80, gaps de concreto e anos de atrito ininterrupto.
+        <div class="kicker-label">ESPECIFICAÇÕES DE MATERIAIS</div>
+        <h2 class="display-h2">ENGENHARIA BALÍSTICA DE PISTA</h2>
+        <p class="lead-prose">
+          Construído com tolerâncias estruturais para resistir a lixa abrasiva grau 80 e anos de atrito ininterrupto.
         </p>
 
-        <div class="specs-grid-deconstructed">
-          <div class="spec-block">
+        <div class="specs-modular-grid">
+          <div class="spec-column-box">
             <div>
-              <div class="spec-id">SPEC_01</div>
-              <h3 class="h3-title">CABEDAL SUEDE 2.4MM</h3>
-              <p class="body-text">
-                Camurça suína Wolverine tratada com nanotecnologia hidro-repelente. Resiste 3x mais ao atrito contínuo do ollie do que o suede comercial padrão.
+              <div class="spec-serial-id">ESPECIFICAÇÃO 01</div>
+              <h3 class="display-h3">CABEDAL SUEDE 2.4MM</h3>
+              <p class="body-prose">
+                Camurça suína Wolverine com tratamento hidro-repelente nanotecnológico. Resiste 3x mais ao atrito do ollie do que o suede comercial padrão.
               </p>
             </div>
-            <div class="spec-footer-bar">
+            <div class="spec-bottom-meta">
               <span>RESISTÊNCIA</span>
               <span>ABRASION GRADE 4</span>
             </div>
           </div>
 
-          <div class="spec-block">
+          <div class="spec-column-box">
             <div>
-              <div class="spec-id">SPEC_02</div>
-              <h3 class="h3-title">SOLADO GUM KNURLED</h3>
-              <p class="body-text">
-                Composto de borracha vegetal crua natural moldada em duas densidades. Laterais recartilhadas para proteção lateral e base flexível de alto grip.
+              <div class="spec-serial-id">ESPECIFICAÇÃO 02</div>
+              <h3 class="display-h3">SOLADO GUM KNURLED</h3>
+              <p class="body-prose">
+                Borracha vegetal natural moldada em dupla densidade. Laterais recartilhadas para proteção lateral e base flexível de alto grip em 360°.
               </p>
             </div>
-            <div class="spec-footer-bar">
+            <div class="spec-bottom-meta">
               <span>DUREZA</span>
               <span>SHORE A 62</span>
             </div>
           </div>
 
-          <div class="spec-block">
+          <div class="spec-column-box">
             <div>
-              <div class="spec-id">SPEC_03</div>
-              <h3 class="h3-title">COLLAR FOAM 18MM</h3>
-              <p class="body-text">
-                Língua e colarinho acolchoados clássicos dos anos 90 com espuma de memória de célula fechada. Trava os ossos do tornozelo impedindo torções.
+              <div class="spec-serial-id">ESPECIFICAÇÃO 03</div>
+              <h3 class="display-h3">COLLAR FOAM 18MM</h3>
+              <p class="body-prose">
+                Língua e colarinho ultragordos clássicos dos anos 90 com espuma de memória de célula fechada. Estabiliza o tornozelo impedindo torções.
               </p>
             </div>
-            <div class="spec-footer-bar">
+            <div class="spec-bottom-meta">
               <span>PROTEÇÃO</span>
               <span>ANKLE LOCK 3D</span>
             </div>
           </div>
 
-          <div class="spec-block">
+          <div class="spec-column-box">
             <div>
-              <div class="spec-id">SPEC_04</div>
-              <h3 class="h3-title">FAT LACES & AGLETS</h3>
-              <p class="body-text">
-                Cadarços planos de 16mm em algodão pesado com ponteiras de alumínio fosco prensadas a frio. Passadores embutidos que protegem os laços da lixa.
+              <div class="spec-serial-id">ESPECIFICAÇÃO 04</div>
+              <h3 class="display-h3">FAT LACES & AGLETS</h3>
+              <p class="body-prose">
+                Cadarços planos de 16mm em algodão pesado com ponteiras de alumínio fosco prensadas a frio. Passadores embutidos anti-rasgo.
               </p>
             </div>
-            <div class="spec-footer-bar">
+            <div class="spec-bottom-meta">
               <span>LARGURA</span>
               <span>16MM GAUGE</span>
             </div>
@@ -1442,27 +1486,27 @@
     <!-- ==========================================================================
          SECTION 5: PHILOSOPHY & MANIFESTO
          ========================================================================== -->
-    <section class="section-manifesto" id="manifesto">
-      <div class="manifesto-left-pane">
-        <div class="tag-telemetry red">/// FILOSOFIA & MANIFESTO</div>
-        <h2 class="h2-title" style="font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.1;">
+    <section class="section-manifesto-split" id="manifesto">
+      <div class="manifesto-callout-pane">
+        <div class="kicker-label danger">MANIFESTO HISTÓRICO</div>
+        <h2 class="display-h2" style="font-size: clamp(2rem, 3.8vw, 3.25rem); line-height: 1.08;">
           NÃO É NOSTALGIA.<br>
-          <span style="color: var(--accent);">É ARQUITETURA DE RESISTÊNCIA.</span>
+          <span style="color: var(--accent-danger);">É ARQUITETURA DE RESISTÊNCIA.</span>
         </h2>
-        <div style="font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); margin-top: 1rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-tertiary); margin-top: var(--space-md);">
           [ PROTOCOLO DE DESCONSTRUÇÃO // ADIDAS ARCHIVE LAB ]
         </div>
       </div>
 
-      <div class="manifesto-right-pane">
-        <p class="body-text" style="font-size: 1.05rem; line-height: 1.7;">
-          A maioria das reedições comete o erro de romantizar o passado com materiais estéreis e plásticos. 
+      <div class="manifesto-reading-pane">
+        <p class="body-prose" style="font-size: 1.05rem; line-height: 1.75;">
+          A maioria das reedições comete o erro de romantizar o passado com materiais plásticos e acabamentos estéreis. 
           O <strong>Adidas Ramp 90s</strong> rejeita essa ilusão. Ele não é uma cópia barata; é um fóssil vivo da era de ouro do vert.
         </p>
-        <p class="body-text" style="font-size: 1.05rem; line-height: 1.7;">
+        <p class="body-prose" style="font-size: 1.05rem; line-height: 1.75;">
           Criado em 1994, quando os tênis eram ferramentas brutas esculpidas para suportar a lixa e o granito das praças públicas. Trazer o Ramp de volta é reafirmar que <strong>a forma serve à função extrema</strong>.
         </p>
-        <p class="body-text" style="font-size: 1.05rem; line-height: 1.7;">
+        <p class="body-prose" style="font-size: 1.05rem; line-height: 1.75;">
           Cada costura, cada milímetro de camurça marinho e a densidade da borracha foram restaurados com fidelidade cirúrgica a partir dos moldes originais arquivados em Herzogenaurach.
         </p>
       </div>
@@ -1471,47 +1515,47 @@
     <!-- ==========================================================================
          SECTION 6: ALLOCATION TERMINAL
          ========================================================================== -->
-    <section class="section-allocation" id="allocation">
+    <section class="section-allocation-desk" id="allocation">
       <div class="container">
-        <div class="terminal-window">
-          <div class="terminal-titlebar">
+        <div class="terminal-console-box">
+          <div class="console-header-bar">
             <span>ALLOCATION PROTOCOL // ADI-RMP-90-C</span>
-            <span style="color: var(--neon-lime); font-weight: 700;">● SISTEMA PRONTO</span>
+            <span style="color: var(--accent-solar); font-weight: 700;">● TERMINAL EM OPERAÇÃO</span>
           </div>
 
-          <div class="terminal-body">
-            <div class="tag-telemetry">/// TERMINAL DE RESERVA DE LOTE</div>
-            <h2 class="h2-title">GARANTA SEU PAR NO LOTE ZERO</h2>
-            <p class="lead-text" style="margin-bottom: 2rem;">
+          <div class="console-form-container">
+            <div class="kicker-label">RESERVA DIRETA DE LOTE</div>
+            <h2 class="display-h2" style="font-size: clamp(1.6rem, 2.8vw, 2.2rem);">GARANTA SEU PAR NO LOTE ZERO</h2>
+            <p class="lead-prose" style="margin-bottom: var(--space-xl);">
               Lote rigorosamente limitado a 1.000 pares numerados mundialmente. Cada caixa acompanha bloco de lixa de arquivo e certificado holográfico.
             </p>
 
             <form id="allocForm" onsubmit="event.preventDefault(); triggerAllocation();">
-              <div class="form-row">
+              <div class="form-two-column">
                 <div>
-                  <label for="userName" class="field-label">NOME COMPLETO // IDENTIFICATION</label>
-                  <input type="text" id="userName" class="field-input" placeholder="EX: EDUARDO MAIA" required>
+                  <label for="userName" class="form-input-label">NOME COMPLETO // IDENTIFICATION</label>
+                  <input type="text" id="userName" class="form-text-input" placeholder="EX: EDUARDO MAIA" required>
                 </div>
 
                 <div>
-                  <label for="userEmail" class="field-label">E-MAIL DO TITULAR // TELEMETRY LINK</label>
-                  <input type="email" id="userEmail" class="field-input" placeholder="nome@dominio.com" required>
+                  <label for="userEmail" class="form-input-label">E-MAIL DO TITULAR // TELEMETRY LINK</label>
+                  <input type="email" id="userEmail" class="form-text-input" placeholder="nome@dominio.com" required>
                 </div>
               </div>
 
               <div>
-                <label class="field-label">SELECIONE SUA NUMERAÇÃO BR / US</label>
-                <div class="sizes-grid">
-                  <button type="button" class="btn-size selected" data-size="38">38 BR</button>
-                  <button type="button" class="btn-size" data-size="39">39 BR</button>
-                  <button type="button" class="btn-size" data-size="40">40 BR</button>
-                  <button type="button" class="btn-size" data-size="41">41 BR</button>
-                  <button type="button" class="btn-size" data-size="42">42 BR</button>
-                  <button type="button" class="btn-size" data-size="43">43 BR</button>
+                <label class="form-input-label">SELECIONE SUA NUMERAÇÃO BR / US</label>
+                <div class="sizes-flex-grid">
+                  <button type="button" class="size-choice-btn selected" data-size="38">38 BR</button>
+                  <button type="button" class="size-choice-btn" data-size="39">39 BR</button>
+                  <button type="button" class="size-choice-btn" data-size="40">40 BR</button>
+                  <button type="button" class="size-choice-btn" data-size="41">41 BR</button>
+                  <button type="button" class="size-choice-btn" data-size="42">42 BR</button>
+                  <button type="button" class="size-choice-btn" data-size="43">43 BR</button>
                 </div>
               </div>
 
-              <button type="submit" class="btn-brutal-primary" style="width: 100%; margin-top: 1rem;">
+              <button type="submit" class="btn-solid-primary" style="width: 100%; margin-top: var(--space-md);">
                 <span>SOLICITAR PROTOCOLO DE ALOCAÇÃO</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1519,31 +1563,31 @@
               </button>
             </form>
 
-            <!-- Generated Reservation Pass -->
-            <div class="pass-container" id="passBox">
-              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--neon-lime); padding-bottom: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                <span style="color: var(--neon-lime); font-weight: 700; font-size: 0.85rem;">ALOCAÇÃO REGISTRADA COM SUCESSO</span>
-                <span id="passTimestamp" style="color: var(--text-dim); font-size: 0.72rem;"></span>
+            <!-- Generated Pass Box -->
+            <div class="allocated-pass-card" id="passBox">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--accent-solar); padding-bottom: var(--space-sm); margin-bottom: var(--space-md); flex-wrap: wrap; gap: var(--space-xs);">
+                <span style="color: var(--accent-solar); font-weight: 700; font-size: 0.88rem;">ALOCAÇÃO REGISTRADA COM SUCESSO</span>
+                <span id="passTimestamp" style="color: var(--text-tertiary); font-size: 0.72rem;"></span>
               </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.82rem; margin-bottom: 1rem;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); font-size: 0.82rem; margin-bottom: var(--space-md);">
                 <div>
-                  <div style="color: var(--text-dim);">TITULAR:</div>
+                  <div style="color: var(--text-tertiary);">TITULAR:</div>
                   <div id="passName" style="color: #fff; font-weight: 700;"></div>
                 </div>
                 <div>
-                  <div style="color: var(--text-dim);">NUMERAÇÃO:</div>
+                  <div style="color: var(--text-tertiary);">NUMERAÇÃO:</div>
                   <div id="passSize" style="color: #fff; font-weight: 700;"></div>
                 </div>
                 <div>
-                  <div style="color: var(--text-dim);">Nº DE PROTOCOLO:</div>
-                  <div id="passId" style="color: var(--neon-lime); font-weight: 700;"></div>
+                  <div style="color: var(--text-tertiary);">PROTOCOLO:</div>
+                  <div id="passId" style="color: var(--accent-solar); font-weight: 700;"></div>
                 </div>
                 <div>
-                  <div style="color: var(--text-dim);">STATUS:</div>
+                  <div style="color: var(--text-tertiary);">STATUS:</div>
                   <div style="color: #fff;">FILA PRIORITÁRIA // CONFIRMADO</div>
                 </div>
               </div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 0.75rem;">
+              <div style="font-size: 0.75rem; color: var(--text-secondary); border-top: 1px dashed rgba(255,255,255,0.15); padding-top: var(--space-sm);">
                 Apresente este código quando o link privado de checkout for liberado para o seu e-mail cadastrado.
               </div>
             </div>
@@ -1556,43 +1600,43 @@
   <!-- ==========================================================================
        FOOTER
        ========================================================================== -->
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-content-grid">
         <div>
-          <div class="footer-heading">ADIDAS RAMP 90s // MONOGRÁFICO CONCEITUAL</div>
-          <p style="color: var(--text-muted); max-width: 420px; font-size: 0.82rem; line-height: 1.6;">
-            Arquitetura visual de alta precisão desenvolvida para celebrar a herança do skate original dos anos 90 com tecnologias modernas de performance na web.
+          <div class="footer-col-title">ADIDAS RAMP 90s // MONOGRAFIA CONCEITUAL</div>
+          <p style="color: var(--text-secondary); max-width: 440px; font-size: 0.82rem; line-height: 1.65;">
+            Arquitetura visual de alta precisão desenvolvida para celebrar a herança original do skate com tecnologias contemporâneas de design e performance digital.
           </p>
         </div>
 
         <div>
-          <div class="footer-heading">VERSÕES DO PROJETO</div>
-          <ul class="footer-links">
-            <li><a href="index.html" style="color: var(--neon-lime);">● V2.0 // Blueprint Conceitual (Atual)</a></li>
-            <li><a href="v1.html">○ V1.0 // Acervo & Vídeos Vintage</a></li>
+          <div class="footer-col-title">VERSÕES DO PROJETO</div>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" style="color: var(--accent-solar);">● V2.0 // Monografia Conceitual (Atual)</a></li>
+            <li><a href="v1.html">○ V1.0 // Acervo 1996 & Vídeos</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-heading">COORDENADAS TÉCNICAS</div>
-          <ul class="footer-links">
+          <div class="footer-col-title">COORDENADAS TÉCNICAS</div>
+          <ul class="footer-nav-list">
             <li>HQ: HERZOGENAURACH, DE</li>
             <li>LAT: 49°34'12" N // LON: 10°52'48" E</li>
-            <li>ARCHIVE: RMP-1994-BRT</li>
+            <li>REGISTRO: RMP-1994-BRT</li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom-row">
+      <div class="footer-colophon-row">
         <div>© 2026 ADIDAS ARCHIVE PROJECT. TODOS OS DIREITOS RESERVADOS.</div>
-        <div style="color: var(--text-dim);">HIGH-PERFORMANCE SWISS BRUTALISM</div>
+        <div style="color: var(--text-tertiary);">IMPECCABLE ARCHITECTURAL CRAFT</div>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       TACTILE SOUND & INTERACTION SCRIPT
+       TACTILE AUDIO & INTERACTION ENGINE
        ========================================================================== -->
   <script>
     let audioCtx = null;
@@ -1678,7 +1722,7 @@
           osc.stop(now + 0.03);
         }
       } catch (e) {
-        console.warn('Audio contextual initialization:', e);
+        console.warn('Audio Context:', e);
       }
     }
 
@@ -1728,7 +1772,7 @@
       analyser.getByteTimeDomainData(dataArray);
 
       canvas.width = canvas.parentElement.clientWidth;
-      canvas.height = 60;
+      canvas.height = 65;
       canvasCtx.fillStyle = '#040507';
       canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
       canvasCtx.lineWidth = 2;
@@ -1753,7 +1797,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       // Perspective Cam Switcher
-      const camButtons = document.querySelectorAll('.cam-tab');
+      const camButtons = document.querySelectorAll('.perspective-tab');
       const heroImg = document.getElementById('heroViewerImg');
       const camTag = document.getElementById('camTag');
 
@@ -1778,7 +1822,7 @@
       });
 
       // Sound Pads
-      const soundPads = document.querySelectorAll('.sound-pad');
+      const soundPads = document.querySelectorAll('.tactile-pad');
       soundPads.forEach(pad => {
         pad.addEventListener('click', () => {
           const type = pad.getAttribute('data-sound-type');
@@ -1787,7 +1831,7 @@
 
           const hzEl = document.getElementById('oscHz');
           if (hzEl) {
-            hzEl.textContent = `TRIGGER: [${type.toUpperCase()}] // FREQ ATIVA`;
+            hzEl.textContent = `DISPARO: [${type.toUpperCase()}] // FREQUÊNCIA ATIVA`;
           }
 
           setTimeout(() => {
@@ -1796,7 +1840,7 @@
         });
       });
 
-      // Sound Toggle
+      // Global Sound Toggle
       const soundToggle = document.getElementById('globalSoundToggle');
       const soundStatusText = document.getElementById('soundStatusText');
       soundToggle.classList.add('is-active');
@@ -1814,8 +1858,8 @@
         }
       });
 
-      // Size Buttons
-      const sizeBtns = document.querySelectorAll('.btn-size');
+      // Shoe Size Selection
+      const sizeBtns = document.querySelectorAll('.size-choice-btn');
       sizeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           sizeBtns.forEach(b => b.classList.remove('selected'));
