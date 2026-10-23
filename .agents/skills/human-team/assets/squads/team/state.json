@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "label": "Campanha Retorno Adidas Ramp 90s — Produção e Entrega Concluídas",
+  "startedAt": "2026-10-23T12:11:00-03:00",
+  "completedAt": "2026-10-23T12:43:00-03:00",
+  "campaign": "retorno-adidas-ramp-90s",
+  "agents": {
+    "planejamento": "done",
+    "sondagem": "done",
+    "conceito": "done",
+    "roteiro": "done",
+    "arte": "done",
+    "storyboard": "done",
+    "operacao": "done",
+    "edicao": "done",
+    "midia": "done",
+    "transformacao": "done"
+  }
+}

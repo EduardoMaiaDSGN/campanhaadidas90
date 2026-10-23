@@ -1,0 +1,6 @@
+# Git ignore for Campanha da Adidas
+_skills_zips/
+*.zip
+deploy_campanha.py
+check_refs.py
+convert_pdf.py
