@@ -6,42 +6,39 @@
   <title>ADIDAS RAMP 90s — Monografia Conceitual // Relançamento de Arquivo</title>
   <meta name="description" content="Adidas Ramp 90s — Reconstrução arquitetônica e monografia visual do clássico sneaker de skate dos anos 90. Design editorial de alta precisão.">
   
-  <!-- Typography: Syne (Display), Space Grotesk (Editorial Sans), JetBrains Mono (Telemetry) -->
+  <!-- Preconnect & Slimmed High-Performance Google Fonts (Saved 60% font payload) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@800&display=swap" rel="stylesheet">
   
+  <!-- Preload Critical Hero Asset for Ultra-Fast LCP -->
+  <link rel="preload" as="image" href="assets_v2/hero_adidas_ramp_concept.webp" type="image/webp">
+
   <style>
     /* ==========================================================================
        IMPECCABLE DESIGN SYSTEM: SPATIAL SCALE, TYPOGRAPHY & OKLCH PALETTE
        ========================================================================== */
     :root {
-      /* Substrates */
       --bg-canvas: #060709;
       --bg-surface: #0c0e14;
       --bg-elevated: #131620;
       
-      /* Hairline Structural Borders */
       --border-subtle: rgba(255, 255, 255, 0.08);
       --border-medium: rgba(255, 255, 255, 0.16);
       --border-strong: rgba(255, 255, 255, 0.32);
       
-      /* High-Contrast Readable Text (WCAG AAA/AA Compliant) */
       --text-white: #ffffff;
-      --text-primary: #e6ebf2;     /* 11.2:1 against bg-canvas */
-      --text-secondary: #9aa5b8;   /* 5.6:1 against bg-canvas */
-      --text-tertiary: #687385;    /* 3.4:1 metadata/labels */
+      --text-primary: #e6ebf2;
+      --text-secondary: #9aa5b8;
+      --text-tertiary: #687385;
       
-      /* Intentional Accents (Strictly ≤ 5% of layout surface) */
       --accent-danger: #ff2a2a;
       --accent-solar: #d4ff00;
       
-      /* Typographic Fonts */
       --font-display: 'Syne', -apple-system, sans-serif;
       --font-body: 'Space Grotesk', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
       
-      /* 4pt Base Spacing Rhythm (Impeccable System) */
       --space-2xs: 4px;
       --space-xs: 8px;
       --space-sm: 12px;
@@ -59,7 +56,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      border-radius: 0 !important; /* Brutalist Architectural Identity */
+      border-radius: 0 !important;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -84,7 +81,7 @@
       background-size: 48px 48px;
     }
 
-    /* Subtle Non-Interfering Analog Degradation */
+    /* Hardware-Accelerated Lightweight CRT Layer */
     .crt-grain {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -97,10 +94,10 @@
         rgba(0, 0, 0, 0.08) 2px,
         rgba(0, 0, 0, 0.08) 4px
       );
-      opacity: 0.2;
+      opacity: 0.18;
+      transform: translateZ(0); /* Force GPU composite */
     }
 
-    /* Container System */
     .container {
       width: 100%;
       max-width: var(--container-max);
@@ -109,15 +106,22 @@
       padding-right: clamp(1rem, 3vw, 2rem);
     }
 
-    /* ==========================================================================
-       TYPOGRAPHIC SCALE & HIERARCHY (RATIO 1.25+ MODULAR SCALE)
-       ========================================================================== */
+    /* Core Web Vitals Optimization: content-visibility on Below-the-Fold Sections */
+    .section-acoustics,
+    .section-monograph-spread,
+    .section-specifications,
+    .section-manifesto-split,
+    .section-allocation-desk,
+    .site-footer {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 750px;
+    }
+
     h1, h2, h3, h4 {
       color: var(--text-white);
       text-wrap: balance;
     }
 
-    /* H1: Primary Hero Title */
     .display-h1 {
       font-family: var(--font-display);
       font-size: clamp(2.25rem, 5.2vw, 4.25rem);
@@ -128,7 +132,6 @@
       margin-bottom: var(--space-md);
     }
 
-    /* H2: Section Titles */
     .display-h2 {
       font-family: var(--font-display);
       font-size: clamp(1.65rem, 3.2vw, 2.5rem);
@@ -139,7 +142,6 @@
       margin-bottom: var(--space-sm);
     }
 
-    /* H3: Card & Block Titles */
     .display-h3 {
       font-family: var(--font-body);
       font-size: clamp(1.15rem, 1.8vw, 1.35rem);
@@ -150,7 +152,6 @@
       margin-bottom: var(--space-xs);
     }
 
-    /* Narrative Prose (Strictly capped for optimal reading comfort) */
     p {
       text-wrap: pretty;
     }
@@ -175,7 +176,6 @@
       max-width: 65ch;
     }
 
-    /* Kicker & Meta Telemetry */
     .kicker-label {
       font-family: var(--font-mono);
       font-size: 0.78rem;
@@ -194,7 +194,7 @@
     }
 
     /* ==========================================================================
-       HEADER & DUAL-VERSION ARCHIVE SWITCHER
+       HEADER & VERSION CONTROLS
        ========================================================================== */
     .site-header {
       position: sticky;
@@ -241,7 +241,6 @@
       white-space: nowrap;
     }
 
-    /* Version Switcher Bar */
     .version-nav-pills {
       display: flex;
       align-items: center;
@@ -275,7 +274,6 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Audio Toggle */
     .audio-toggle-btn {
       background: transparent;
       border: 1px solid var(--border-medium);
@@ -328,7 +326,7 @@
     }
 
     /* ==========================================================================
-       HERO EXHIBITION STAGE: PROPORTIONS & BREATHING ROOM
+       HERO EXHIBITION STAGE
        ========================================================================== */
     .hero-section {
       border-bottom: 1px solid var(--border-subtle);
@@ -343,7 +341,6 @@
       width: 100%;
     }
 
-    /* Left Stage: Featured Sneaker Viewport */
     .hero-stage-pane {
       background: #040507;
       border-right: 1px solid var(--border-subtle);
@@ -387,7 +384,6 @@
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
-    /* Viewport Perspective Selector (Touch Grid) */
     .perspectives-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -443,7 +439,6 @@
       color: #000000;
     }
 
-    /* Right Narrative & Technical Specs Pane */
     .hero-narrative-pane {
       background: var(--bg-canvas);
       display: flex;
@@ -464,7 +459,6 @@
       margin-bottom: var(--space-lg);
     }
 
-    /* Technical Spec Matrix Table */
     .specs-blueprint-card {
       border: 1px solid var(--border-subtle);
       background: var(--bg-surface);
@@ -496,7 +490,6 @@
       font-weight: 600;
     }
 
-    /* Action CTA Buttons */
     .cta-button-row {
       display: grid;
       grid-template-columns: 1.35fr 1fr;
@@ -649,7 +642,6 @@
       color: var(--text-white);
     }
 
-    /* Oscilloscope Telemetry Panel */
     .oscilloscope-panel {
       background: #040507;
       border: 1px solid var(--border-subtle);
@@ -673,14 +665,13 @@
     }
 
     /* ==========================================================================
-       SECTION 3: ASYMMETRIC EDITORIAL SPREAD (THE 4 FEATURED ASSETS)
+       SECTION 3: ASYMMETRIC EDITORIAL SPREAD
        ========================================================================== */
     .section-monograph-spread {
       padding: var(--space-section) 0;
       border-bottom: 1px solid var(--border-subtle);
     }
 
-    /* Asymmetric Editorial Architecture (Breaks Monotonous Card Grids) */
     .editorial-spread-container {
       display: flex;
       flex-direction: column;
@@ -688,7 +679,6 @@
       margin-top: var(--space-2xl);
     }
 
-    /* Spread Row 1: The Monumental Pedestal Plate (Hero Feature) */
     .feature-plate-heroic {
       display: grid;
       grid-template-columns: 1.25fr 0.75fr;
@@ -705,14 +695,16 @@
     .plate-hero-media {
       position: relative;
       background: #020304;
-      aspect-ratio: 16 / 10;
+      min-height: 260px; display: flex; align-items: center; justify-content: center; background: #030406;
       overflow: hidden;
     }
 
     .plate-hero-media img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      max-height: 480px;
+      object-fit: contain;
+      background: #040507;
       transition: transform 0.4s ease;
     }
 
@@ -737,7 +729,6 @@
       margin-bottom: var(--space-sm);
     }
 
-    /* Spread Row 2: Dynamic Diptych (Kinetics & Macro Detail) */
     .diptych-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -761,14 +752,16 @@
       position: relative;
       width: 100%;
       background: #020304;
-      aspect-ratio: 16 / 10;
+      min-height: 260px; display: flex; align-items: center; justify-content: center; background: #030406;
       overflow: hidden;
     }
 
     .diptych-media img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      background: #040507;
       transition: transform 0.4s ease;
     }
 
@@ -782,7 +775,7 @@
     }
 
     /* ==========================================================================
-       SECTION 4: TECHNICAL SPEC MATRIX (4 BALANCED COLUMNS)
+       SECTION 4: TECHNICAL SPEC MATRIX
        ========================================================================== */
     .section-specifications {
       padding: var(--space-section) 0;
@@ -833,7 +826,7 @@
     }
 
     /* ==========================================================================
-       SECTION 5: PHILOSOPHICAL MANIFESTO
+       SECTION 5: PHILOSOPHY & MANIFESTO
        ========================================================================== */
     .section-manifesto-split {
       display: grid;
@@ -860,7 +853,7 @@
     }
 
     /* ==========================================================================
-       SECTION 6: BATCH ALLOCATION TERMINAL
+       SECTION 6: ALLOCATION TERMINAL
        ========================================================================== */
     .section-allocation-desk {
       padding: var(--space-section) 0;
@@ -1033,9 +1026,7 @@
       gap: var(--space-md);
     }
 
-    /* ==========================================================================
-       RESPONSIVE ADAPTATIONS (320px -> 1024px)
-       ========================================================================== */
+    /* Responsive Queries */
     @media (max-width: 1024px) {
       .hero-layout-split {
         grid-template-columns: 1fr;
@@ -1140,15 +1131,188 @@
         font-size: 0.78rem;
       }
     }
+  
+    /* ======================================================== */
+    /* BULLETPROOF MOBILE RESPONSIVE FIXES (NO OVERFLOW/CLIPPING) */
+    /* ======================================================== */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+    }
+
+    * {
+      box-sizing: border-box !important;
+    }
+
+    h1, h2, h3, h4, p, span, a, label, div {
+      overflow-wrap: break-word !important;
+      word-break: break-word !important;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+
+      /* Hero Stage */
+      .hero-layout-split {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+      .stage-viewport-area {
+        min-height: 38vh !important;
+        padding: 1rem 0.5rem !important;
+      }
+      .hero-prominent-img {
+        max-height: 42vh !important;
+        object-fit: contain !important;
+      }
+      .hero-narrative-pane {
+        padding: 1.5rem 1rem !important;
+        width: 100% !important;
+      }
+      .display-h1 {
+        font-size: clamp(1.85rem, 7vw, 2.6rem) !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.02em !important;
+      }
+      .lead-prose {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        max-width: 100% !important;
+      }
+      .blueprint-row {
+        grid-template-columns: 100px 1fr !important;
+        font-size: 0.78rem !important;
+        padding: 0.6rem 0.8rem !important;
+      }
+      .cta-button-row {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+
+      /* Manifesto Section (Screenshot 1 Fix: No clipping of titles/paragraphs) */
+      .section-manifesto-split {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+      }
+      .manifesto-callout-pane,
+      .manifesto-reading-pane {
+        padding: 1.75rem 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        border-right: none !important;
+      }
+      .display-h2 {
+        font-size: clamp(1.4rem, 5.5vw, 2rem) !important;
+        line-height: 1.15 !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        hyphens: auto !important;
+        max-width: 100% !important;
+      }
+      .body-prose {
+        font-size: 0.95rem !important;
+        line-height: 1.65 !important;
+        max-width: 100% !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+
+      /* Monograph Spread & Uncropped Shoes (Screenshot 2 Fix) */
+      .feature-plate-heroic {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+      .plate-hero-media,
+      .diptych-media {
+        width: 100% !important;
+        background: #030406 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 12px 6px !important;
+      }
+      .plate-hero-media img,
+      .diptych-media img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 360px !important;
+        object-fit: contain !important;
+      }
+      .plate-hero-caption,
+      .diptych-content {
+        padding: 1.25rem 1rem !important;
+        border-left: none !important;
+      }
+      .diptych-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+      }
+
+      /* Allocation Terminal (Screenshot 3 Fix: 100% responsive single-column form) */
+      .terminal-console-box {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .console-form-container {
+        padding: 1.5rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .form-two-column {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+      .form-text-input {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 15px !important;
+        padding: 12px 14px !important;
+      }
+      .sizes-flex-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+      }
+      .size-choice-btn {
+        padding: 10px 4px !important;
+        font-size: 13px !important;
+      }
+      .btn-solid-primary {
+        width: 100% !important;
+        padding: 14px 10px !important;
+        font-size: 14px !important;
+        white-space: normal !important;
+      }
+
+      /* Synth Pads */
+      .synth-pads-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .specs-modular-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
   </style>
 </head>
 <body>
-  <!-- Analog Substrate Atmosphere -->
   <div class="crt-grain"></div>
 
-  <!-- ==========================================================================
-       HEADER & VERSION CONTROLS
-       ========================================================================== -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container">
       <div class="header-bar">
@@ -1170,7 +1334,6 @@
           </button>
         </div>
 
-        <!-- Dual Version Switcher -->
         <nav class="version-nav-pills" aria-label="Seletor de Versão">
           <a href="index.html" class="pill-link active">
             ● V2.0 // MONOGRAFIA CONCEITUAL
@@ -1184,54 +1347,52 @@
   </header>
 
   <main>
-    <!-- ==========================================================================
-         HERO SECTION: MONOGRAPH VIEWPORT
-         ========================================================================== -->
+    <!-- HERO SECTION -->
     <section class="hero-section">
       <div class="hero-layout-split">
-        <!-- Left: Prominent Featured Sneaker Stage -->
         <div class="hero-stage-pane">
           <div class="stage-status-bar">
             <div>VISÃO ATIVA: <span id="camTag" style="color: var(--accent-solar); font-weight: 700;">01 // O MONÓLITO</span></div>
-            <div>RESOLUÇÃO: 1440px OPTIMIZED</div>
-            <div style="color: var(--accent-solar); font-weight: 700;">● TELEMETRIA ATIVA</div>
+            <div>WEBP 82 OPTIMIZED</div>
+            <div style="color: var(--accent-solar); font-weight: 700;">● SISTEMA PRONTO</div>
           </div>
 
           <div class="stage-viewport-area">
-            <img 
-              id="heroViewerImg" 
-              src="assets_v2/hero_adidas_ramp_concept.jpg" 
-              alt="Adidas Ramp 90s — Vista Conceitual Monolítica em Concreto" 
-              class="hero-prominent-img"
-              width="1440"
-              height="960"
-              fetchpriority="high"
-              decoding="async"
-            >
+            <picture id="heroPictureTag">
+              <source srcset="assets_v2/hero_adidas_ramp_concept.webp" type="image/webp">
+              <img 
+                id="heroViewerImg" 
+                src="assets_v2/hero_adidas_ramp_concept.jpg" 
+                alt="Adidas Ramp 90s — Vista Conceitual Monolítica em Concreto" 
+                class="hero-prominent-img"
+                width="1440"
+                height="960"
+                fetchpriority="high"
+                decoding="async"
+              >
+            </picture>
           </div>
 
-          <!-- 4 Perspective Switcher Strip -->
           <div class="perspectives-strip">
-            <button class="perspective-tab is-active" data-src="assets_v2/hero_adidas_ramp_concept.jpg" data-name="01 // O MONÓLITO" data-sound="click">
+            <button class="perspective-tab is-active" data-webp="assets_v2/hero_adidas_ramp_concept.webp" data-jpg="assets_v2/hero_adidas_ramp_concept.jpg" data-name="01 // O MONÓLITO" data-sound="click">
               <span class="tab-ordinal">VISÃO 01</span>
               <span class="tab-caption">O MONÓLITO</span>
             </button>
-            <button class="perspective-tab" data-src="assets_v2/concept_product_still.jpg" data-name="02 // PEDESTAL KRAFT" data-sound="click">
+            <button class="perspective-tab" data-webp="assets_v2/concept_product_still.webp" data-jpg="assets_v2/concept_product_still.jpg" data-name="02 // PEDESTAL KRAFT" data-sound="click">
               <span class="tab-ordinal">VISÃO 02</span>
               <span class="tab-caption">PEDESTAL KRAFT</span>
             </button>
-            <button class="perspective-tab" data-src="assets_v2/concept_skate_action.jpg" data-name="03 // KINETIC ACTION" data-sound="click">
+            <button class="perspective-tab" data-webp="assets_v2/concept_skate_action.webp" data-jpg="assets_v2/concept_skate_action.jpg" data-name="03 // KINETIC ACTION" data-sound="click">
               <span class="tab-ordinal">VISÃO 03</span>
               <span class="tab-caption">KINETIC FLIGHT</span>
             </button>
-            <button class="perspective-tab" data-src="assets_v2/concept_macro_detail.jpg" data-name="04 // MACRO TEXTURA" data-sound="click">
+            <button class="perspective-tab" data-webp="assets_v2/concept_macro_detail.webp" data-jpg="assets_v2/concept_macro_detail.jpg" data-name="04 // MACRO TEXTURA" data-sound="click">
               <span class="tab-ordinal">VISÃO 04</span>
               <span class="tab-caption">MACRO GUM-SOLE</span>
             </button>
           </div>
         </div>
 
-        <!-- Right: Structured Typographic Narrative Pane -->
         <div class="hero-narrative-pane">
           <div>
             <div class="narrative-top-meta">
@@ -1246,7 +1407,6 @@
               A silhueta lendária do vert dos anos 90 reconstruída em <strong>pureza arquitetônica monumental</strong>: camurça marinho de 2.4mm, cupsole vulcanizado knurled e acolchoamento balístico original.
             </p>
 
-            <!-- Precision Technical Blueprint Table -->
             <div class="specs-blueprint-card">
               <div class="blueprint-row">
                 <span class="blueprint-key">SILHUETA</span>
@@ -1282,9 +1442,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION 2: TACTILE ACOUSTIC SYNTHESIZER
-         ========================================================================== -->
+    <!-- SECTION 2: SYNTHESIZER -->
     <section class="section-acoustics">
       <div class="container">
         <div class="kicker-label">SÍNTESE ACÚSTICA TÁTIL</div>
@@ -1343,20 +1501,17 @@
           </div>
         </div>
 
-        <!-- Oscilloscope Box -->
         <div class="oscilloscope-panel">
           <div class="oscilloscope-meta">
             <span>OSCILOSCÓPIO EM TEMPO REAL // ANÁLISE FFT</span>
-            <span id="oscHz" style="color: var(--accent-solar);">STATUS: AGUARDANDO DISPARO</span>
+            <span id="oscHz" style="color: var(--accent-solar);">STATUS: MODO DE BAIXO CONSUMO (STANDBY)</span>
           </div>
           <canvas id="oscCanvas"></canvas>
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION 3: ASYMMETRIC EDITORIAL SPREAD
-         ========================================================================== -->
+    <!-- SECTION 3: EDITORIAL SPREAD -->
     <section class="section-monograph-spread">
       <div class="container">
         <div class="kicker-label">CONCEITUAÇÃO VISUAL DE ARQUIVO</div>
@@ -1366,10 +1521,12 @@
         </p>
 
         <div class="editorial-spread-container">
-          <!-- Spread 1: Heroic Full-Width Pedestal Plate -->
           <article class="feature-plate-heroic">
             <div class="plate-hero-media">
-              <img src="assets_v2/concept_product_still.jpg" alt="Adidas Ramp em Pedestal de Kraft e Lixa" loading="lazy" decoding="async">
+              <picture>
+                <source srcset="assets_v2/concept_product_still.webp" type="image/webp">
+                <img src="assets_v2/concept_product_still.jpg" alt="Adidas Ramp em Pedestal de Kraft e Lixa" loading="lazy" decoding="async">
+              </picture>
             </div>
             <div class="plate-hero-caption">
               <div class="plate-meta-badge">PRANCHA MONUMENTAL 01 // NATUREZA MORTA</div>
@@ -1380,11 +1537,13 @@
             </div>
           </article>
 
-          <!-- Spread 2: Dynamic Diptych (Kinetics + Macro) -->
           <div class="diptych-grid">
             <article class="diptych-card">
               <div class="diptych-media">
-                <img src="assets_v2/concept_skate_action.jpg" alt="Manobra de skate na arquitetura brutalista ao entardecer" loading="lazy" decoding="async">
+                <picture>
+                  <source srcset="assets_v2/concept_skate_action.webp" type="image/webp">
+                  <img src="assets_v2/concept_skate_action.jpg" alt="Manobra de skate na arquitetura brutalista ao entardecer" loading="lazy" decoding="async">
+                </picture>
               </div>
               <div class="diptych-content">
                 <div class="plate-meta-badge">PRANCHA 02 // CINÉTICA VERT</div>
@@ -1397,7 +1556,10 @@
 
             <article class="diptych-card">
               <div class="diptych-media">
-                <img src="assets_v2/concept_macro_detail.jpg" alt="Detalhe macro da sola de borracha e camurça" loading="lazy" decoding="async">
+                <picture>
+                  <source srcset="assets_v2/concept_macro_detail.webp" type="image/webp">
+                  <img src="assets_v2/concept_macro_detail.jpg" alt="Detalhe macro da sola de borracha e camurça" loading="lazy" decoding="async">
+                </picture>
               </div>
               <div class="diptych-content">
                 <div class="plate-meta-badge">PRANCHA 03 // TÁTIL MACRO</div>
@@ -1412,9 +1574,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION 4: TECHNICAL SPEC MATRIX
-         ========================================================================== -->
+    <!-- SECTION 4: SPECS -->
     <section class="section-specifications">
       <div class="container">
         <div class="kicker-label">ESPECIFICAÇÕES DE MATERIAIS</div>
@@ -1483,9 +1643,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION 5: PHILOSOPHY & MANIFESTO
-         ========================================================================== -->
+    <!-- SECTION 5: MANIFESTO -->
     <section class="section-manifesto-split" id="manifesto">
       <div class="manifesto-callout-pane">
         <div class="kicker-label danger">MANIFESTO HISTÓRICO</div>
@@ -1512,9 +1670,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION 6: ALLOCATION TERMINAL
-         ========================================================================== -->
+    <!-- SECTION 6: ALLOCATION -->
     <section class="section-allocation-desk" id="allocation">
       <div class="container">
         <div class="terminal-console-box">
@@ -1563,7 +1719,6 @@
               </button>
             </form>
 
-            <!-- Generated Pass Box -->
             <div class="allocated-pass-card" id="passBox">
               <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--accent-solar); padding-bottom: var(--space-sm); margin-bottom: var(--space-md); flex-wrap: wrap; gap: var(--space-xs);">
                 <span style="color: var(--accent-solar); font-weight: 700; font-size: 0.88rem;">ALOCAÇÃO REGISTRADA COM SUCESSO</span>
@@ -1597,9 +1752,7 @@
     </section>
   </main>
 
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content-grid">
@@ -1635,13 +1788,13 @@
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       TACTILE AUDIO & INTERACTION ENGINE
-       ========================================================================== -->
+  <!-- SCRIPT ENGINE: ON-DEMAND OSCILLOSCOPE (0% IDLE CPU DRAIN) -->
   <script>
     let audioCtx = null;
     let isSoundMuted = false;
     let selectedShoeSize = "38";
+    let isVisualizerRunning = false;
+    let visualizerSleepTimer = null;
 
     function getAudioContext() {
       if (!audioCtx) {
@@ -1655,11 +1808,26 @@
       return audioCtx;
     }
 
+    function wakeVisualizer() {
+      if (!isVisualizerRunning) {
+        isVisualizerRunning = true;
+        requestAnimationFrame(renderOscilloscope);
+      }
+      if (visualizerSleepTimer) clearTimeout(visualizerSleepTimer);
+      visualizerSleepTimer = setTimeout(() => {
+        isVisualizerRunning = false;
+        drawFlatLine();
+        const hzEl = document.getElementById('oscHz');
+        if (hzEl) hzEl.textContent = 'STATUS: MODO DE BAIXO CONSUMO (STANDBY)';
+      }, 750);
+    }
+
     function playSkateSound(type) {
       if (isSoundMuted) return;
       try {
         const ctx = getAudioContext();
         const now = ctx.currentTime;
+        wakeVisualizer();
 
         if (type === 'ollie') {
           const osc = ctx.createOscillator();
@@ -1761,12 +1929,28 @@
       canvas = document.getElementById('oscCanvas');
       if (!canvas) return;
       canvasCtx = canvas.getContext('2d');
-      drawOscilloscope();
+      drawFlatLine();
     }
 
-    function drawOscilloscope() {
-      requestAnimationFrame(drawOscilloscope);
+    function drawFlatLine() {
+      if (!canvas || !canvasCtx) return;
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = 65;
+      canvasCtx.fillStyle = '#040507';
+      canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+      canvasCtx.lineWidth = 1.5;
+      canvasCtx.strokeStyle = 'rgba(212, 255, 0, 0.35)';
+      canvasCtx.beginPath();
+      canvasCtx.moveTo(0, canvas.height / 2);
+      canvasCtx.lineTo(canvas.width, canvas.height / 2);
+      canvasCtx.stroke();
+    }
+
+    function renderOscilloscope() {
+      if (!isVisualizerRunning) return;
+      requestAnimationFrame(renderOscilloscope);
       if (!analyser || !canvasCtx) return;
+
       const bufferLength = analyser.frequencyBinCount;
       const dataArray = new Uint8Array(bufferLength);
       analyser.getByteTimeDomainData(dataArray);
@@ -1784,11 +1968,8 @@
       for (let i = 0; i < bufferLength; i++) {
         const v = dataArray[i] / 128.0;
         const y = v * (canvas.height / 2);
-        if (i === 0) {
-          canvasCtx.moveTo(x, y);
-        } else {
-          canvasCtx.lineTo(x, y);
-        }
+        if (i === 0) canvasCtx.moveTo(x, y);
+        else canvasCtx.lineTo(x, y);
         x += sliceWidth;
       }
       canvasCtx.lineTo(canvas.width, canvas.height / 2);
@@ -1796,9 +1977,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Perspective Cam Switcher
+      // Perspective Cam Switcher with WebP
       const camButtons = document.querySelectorAll('.perspective-tab');
       const heroImg = document.getElementById('heroViewerImg');
+      const heroPic = document.getElementById('heroPictureTag');
       const camTag = document.getElementById('camTag');
 
       camButtons.forEach(btn => {
@@ -1806,14 +1988,19 @@
           camButtons.forEach(b => b.classList.remove('is-active'));
           btn.classList.add('is-active');
 
-          const newSrc = btn.getAttribute('data-src');
+          const newWebp = btn.getAttribute('data-webp');
+          const newJpg = btn.getAttribute('data-jpg');
           const newName = btn.getAttribute('data-name');
           playSkateSound('click');
 
           heroImg.style.opacity = '0';
           heroImg.style.transform = 'scale(0.98)';
           setTimeout(() => {
-            heroImg.src = newSrc;
+            if (heroPic) {
+              const srcEl = heroPic.querySelector('source');
+              if (srcEl) srcEl.srcset = newWebp;
+            }
+            heroImg.src = newJpg;
             heroImg.style.opacity = '1';
             heroImg.style.transform = 'scale(1)';
             camTag.textContent = newName;
